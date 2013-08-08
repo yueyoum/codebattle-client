@@ -11,8 +11,8 @@ using Google.ProtocolBuffers;
 
 
 public class NetWorking : MonoBehaviour {
-	public string ip = "192.168.137.98";
-	public int port = 8888;
+	private string ip = "192.168.137.98";
+	private int port = 8887;
 	
 	private Socket socket;
 	private bool connected = false;
@@ -23,6 +23,7 @@ public class NetWorking : MonoBehaviour {
 	private int roomId;
 	private bool roomOwner = false;
 	private Hashtable marines = new Hashtable();
+	
 
 	void Awake () {
 		MainScript = GetComponent<Main>();
@@ -36,12 +37,6 @@ public class NetWorking : MonoBehaviour {
 		
 		try {
 			socket.Connect(new IPEndPoint(ipAddress, port));
-			// In my test,  Connect method NEVER thrown an exception even
-			// there were wrong ip, port.
-			// So, for determine whether we have connected to the server
-			// we must do some IO opprate. means send and recv.
-			// Actually, There is necessary send data here,
-			// For verification or something else
 			
 			byte[] ReqCreateRoom = AddLengthHeader(CmdCreateRoom(1));
 			SockSend(ReqCreateRoom);
@@ -105,34 +100,33 @@ public class NetWorking : MonoBehaviour {
 	
 	
 	void ParseMsg (byte[] data) {
-		CodeBattle.Api.Message msg = CodeBattle.Api.Message.ParseFrom(data);
+		CodeBattle.Observer.Message msg = CodeBattle.Observer.Message.ParseFrom(data);
 		print (msg);
 		
-		if(msg.Msg == CodeBattle.Api.MessageEnum.cmdresponse) {
+		if(msg.Msg == CodeBattle.Observer.MessageEnum.cmdresponse) {
 			if(msg.Response.Ret != 0) {
 				throw new Exception("Server return an Error Code " + msg.Response.Ret.ToString());
 			}
 			
-			if(msg.Response.Cmd == CodeBattle.Api.CmdEnum.createroom) {
+			if(msg.Response.Cmd == CodeBattle.Observer.CmdEnum.createroom) {
 				roomId = msg.Response.CrmResponse.Id;
 				roomOwner = true;
 			}
-			/*
-			else if(msg.Response.Cmd == CodeBattle.Api.CmdEnum.createmarine) {
-				CodeBattle.Marine m = msg.Response.CmeResponse.Marine;
-
+			else if(msg.Response.Cmd == CodeBattle.Observer.CmdEnum.joinroom) {
+				roomId = msg.Response.JrmResponse.Id;
 			}
-			*/
 		}
 		
-		if(msg.Msg == CodeBattle.Api.MessageEnum.senceupdate) {
+		if(msg.Msg == CodeBattle.Observer.MessageEnum.senceupdate) {
 			// main logic here!
+
 			foreach(CodeBattle.Marine marine in msg.Update.MarineList) {
 				if(marines.Contains(marine.Id)) {
 					// operate this marine
 					OperateMarine(marine);
 					
 				} else {
+
 					// create new marine in sence
 					GameObject marineInstance = MainScript.CreateOneMarine(
 						new Vector3(marine.Position.X, 0, marine.Position.Z)
@@ -140,9 +134,12 @@ public class NetWorking : MonoBehaviour {
 					Marine MarineScript = marineInstance.GetComponent<Marine>();
 					MarineScript.hp = marine.Hp;
 					MarineScript.id = marine.Id;
+					
+
 					marines.Add(marine.Id, MarineScript);
 				}
 			}
+
 		}
 	}
 	
@@ -170,97 +167,48 @@ public class NetWorking : MonoBehaviour {
 
 	
 	byte[] CmdCreateRoom(int MapId) {
-		CodeBattle.Api.CreateRoom.Builder crmBuilder = new CodeBattle.Api.CreateRoom.Builder();
+		CodeBattle.Observer.CreateRoom.Builder crmBuilder = new CodeBattle.Observer.CreateRoom.Builder();
 		crmBuilder.Map = MapId;
 
-		CodeBattle.Api.Cmd.Builder cmdBuilder = new CodeBattle.Api.Cmd.Builder();
-		cmdBuilder.Cmd_ = CodeBattle.Api.CmdEnum.createroom;
+		CodeBattle.Observer.Cmd.Builder cmdBuilder = new CodeBattle.Observer.Cmd.Builder();
+		cmdBuilder.Cmd_ = CodeBattle.Observer.CmdEnum.createroom;
 		
 		cmdBuilder.Crm = crmBuilder.BuildPartial();
-		CodeBattle.Api.Cmd cmd = cmdBuilder.BuildPartial();
+		CodeBattle.Observer.Cmd cmd = cmdBuilder.BuildPartial();
 		return CmdSerialize(cmd);
 
 	}
-	
-	/*
-	byte[] CmdCreateMarine(string Name, float X, float Z) {
-		CodeBattle.Api.CreateMarine.Builder cmeBuilder = new CodeBattle.Api.CreateMarine.Builder();
-		cmeBuilder.Roomid = roomId;
-		cmeBuilder.Name = Name;
+
+
+	byte[] CmdMarineIdleReport(int MarineId, float cx, float cz) {
+		CodeBattle.Observer.MarineReport.Builder reportBuilder = new CodeBattle.Observer.MarineReport.Builder();
+		reportBuilder.Report = CodeBattle.Observer.ReportEnum.toidle;
+		
+		CodeBattle.Observer.MarineStatus.Builder msBuilder = new CodeBattle.Observer.MarineStatus.Builder();
+		msBuilder.Id = MarineId;
+		msBuilder.Status = CodeBattle.Status.Idle;
 		
 		CodeBattle.Vector2.Builder positionBuilder = new CodeBattle.Vector2.Builder();
-		positionBuilder.X = X;
-		positionBuilder.Z = Z;
+		positionBuilder.X = cx;
+		positionBuilder.Z = cz;
 		
-		cmeBuilder.Position = positionBuilder.BuildPartial();
+		msBuilder.Position = positionBuilder.BuildPartial();
 		
-		CodeBattle.Api.Cmd.Builder cmdBuilder = new CodeBattle.Api.Cmd.Builder();
-		cmdBuilder.Cmd_ = CodeBattle.Api.CmdEnum.createmarine;
 		
-		cmdBuilder.Cme = cmeBuilder.BuildPartial();
-		CodeBattle.Api.Cmd cmd = cmdBuilder.BuildPartial();
+		reportBuilder.Midle = msBuilder.BuildPartial();
+		
+		CodeBattle.Observer.Cmd.Builder cmdBuilder = new CodeBattle.Observer.Cmd.Builder();
+		cmdBuilder.Cmd_ = CodeBattle.Observer.CmdEnum.marinereport;
+		cmdBuilder.Mrt = reportBuilder.BuildPartial();
+		
+		CodeBattle.Observer.Cmd cmd = cmdBuilder.BuildPartial();
 		return CmdSerialize(cmd);
-	}
-	
-	byte[] CmdMarineOperate(int MarineId, CodeBattle.Status Status, float cx, float cz) {
-		CodeBattle.Api.MarineOperate.Builder mBuilder = new CodeBattle.Api.MarineOperate.Builder();
-		mBuilder.Id = MarineId;
-		mBuilder.Status = Status;
-		
-		CodeBattle.Vector2.Builder currentBuilder = new CodeBattle.Vector2.Builder();
-		currentBuilder.X = cx;
-		currentBuilder.Z = cz;
-		
-		mBuilder.CurrentPosition = currentBuilder.BuildPartial();
-		return _CmdMarineOperate(mBuilder);
-	}
-	
-	byte[] CmdMarineOperate(int MarineId, CodeBattle.Status Status, float cx, float cz, float tx, float tz) {
-		CodeBattle.Api.MarineOperate.Builder mBuilder = new CodeBattle.Api.MarineOperate.Builder();
-		mBuilder.Id = MarineId;
-		mBuilder.Status = Status;
-		
-		CodeBattle.Vector2.Builder currentBuilder = new CodeBattle.Vector2.Builder();
-		currentBuilder.X = cx;
-		currentBuilder.Z = cz;
-		
-		CodeBattle.Vector2.Builder targetBuilder = new CodeBattle.Vector2.Builder();
-		targetBuilder.X = tx;
-		targetBuilder.Z = tz;
-		
-		mBuilder.CurrentPosition = currentBuilder.BuildPartial();
-		mBuilder.TargetPostion = targetBuilder.BuildPartial();
-		return _CmdMarineOperate(mBuilder);
-	}
-	
-	byte[] CmdMarineOperate(int MarineId, CodeBattle.Status Status, float cx, float cz, int TargetMarineId) {
-		CodeBattle.Api.MarineOperate.Builder mBuilder = new CodeBattle.Api.MarineOperate.Builder();
-		mBuilder.Id = MarineId;
-		mBuilder.Status = Status;
-		
-		CodeBattle.Vector2.Builder currentBuilder = new CodeBattle.Vector2.Builder();
-		currentBuilder.X = cx;
-		currentBuilder.Z = cz;
-		
-		mBuilder.CurrentPosition = currentBuilder.BuildPartial();
-		return _CmdMarineOperate(mBuilder);
-	}
-	
-	
-	byte[] _CmdMarineOperate(CodeBattle.Api.MarineOperate.Builder mBuilder) {
-		CodeBattle.Api.Cmd.Builder cmdBuilder = new CodeBattle.Api.Cmd.Builder();
-		
 
-			cmdBuilder.Cmd_ = CodeBattle.Api.CmdEnum.marinereport;
-		
-		
-		cmdBuilder.Opt = mBuilder.BuildPartial();
-		CodeBattle.Api.Cmd cmd = cmdBuilder.BuildPartial();
-		return CmdSerialize(cmd);
 	}
-	*/
+
+
 	
-	byte[] CmdSerialize(CodeBattle.Api.Cmd cmd) {
+	byte[] CmdSerialize(CodeBattle.Observer.Cmd cmd) {
 		byte[] buffer = new byte[cmd.SerializedSize];
 		CodedOutputStream stream = CodedOutputStream.CreateInstance(buffer);
 		cmd.WriteTo(stream);
@@ -268,23 +216,18 @@ public class NetWorking : MonoBehaviour {
 	}
 	
 
-	/*
-	public void BroadcastMarineOperate(int MarineId, CodeBattle.Status Status, float cx, float cz) {
-		//if (!ownMarineIds.Contains(MarineId) && !roomOwner) return;
-		byte[] cmd = AddLengthHeader(CmdMarineOperate(MarineId, Status, cx, cz));
+
+	public void MarineIdleReport(int MarineId, float cx, float cz) {
+		if (!roomOwner) return;
+		byte[] cmd = AddLengthHeader(CmdMarineIdleReport(MarineId, cx, cz));
 		SockSend(cmd);
 	}
 	
-	public void BroadcastMarineOperate(int MarineId, CodeBattle.Status Status, float cx, float cz, float tx, float tz) {
-		//if (!ownMarineIds.Contains(MarineId) && !roomOwner) return;
-		byte[] cmd = AddLengthHeader(CmdMarineOperate(MarineId, Status, cx, cz, tx, tz));
+	public void MarineReport(int MarineId, CodeBattle.Status Status, float cx, float cz, float tx, float tz) {
+		/*
+		if (!roomOwner) return;
+		byte[] cmd = AddLengthHeader(CmdMarineReport(MarineId, Status, cx, cz, tx, tz));
 		SockSend(cmd);
+		*/
 	}
-	
-	public void BroadcastMarineOperate(int MarineId, CodeBattle.Status Status, float cx, float cz, int TargetMarineId) {
-		//if (!ownMarineIds.Contains(MarineId) && !roomOwner) return;
-		byte[] cmd = AddLengthHeader(CmdMarineOperate(MarineId, Status, cx, cz, TargetMarineId));
-		SockSend(cmd);
-	}
-	*/
 }

@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\NetWorking.cs" />
      <Compile Include="Assets\Scripts\Proto\Api.cs" />
      <Compile Include="Assets\Scripts\Proto\Marine.cs" />
+     <Compile Include="Assets\Scripts\Proto\Observer.cs" />
      <Compile Include="Assets\Scripts\RifleBullet.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
