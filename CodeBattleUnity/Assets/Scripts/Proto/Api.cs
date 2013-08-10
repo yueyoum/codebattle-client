@@ -55,19 +55,20 @@ namespace CodeBattle.Api {
           "b2RlQmF0dGxlLkFwaS5DbWRFbnVtEjUKC2pybVJlc3BvbnNlGAMgASgLMiAu" + 
           "Q29kZUJhdHRsZS5BcGkuSm9pblJvb21SZXNwb25zZRI5CgtjbWVSZXNwb25z" + 
           "ZRgEIAEoCzIkLkNvZGVCYXR0bGUuQXBpLkNyZWF0ZU1hcmluZVJlc3BvbnNl" + 
-          "IjEKC1NlbmNlVXBkYXRlEiIKBm1hcmluZRgBIAMoCzISLkNvZGVCYXR0bGUu" + 
-          "TWFyaW5lIhoKCEpvaW5Sb29tEg4KBnJvb21pZBgBIAIoBSJFCgxDcmVhdGVN" + 
-          "YXJpbmUSDgoGcm9vbWlkGAEgAigFEiUKCHBvc2l0aW9uGAIgAigLMhMuQ29k" + 
-          "ZUJhdHRsZS5WZWN0b3IyImsKDU1hcmluZU9wZXJhdGUSCgoCaWQYASACKAUS" + 
-          "IgoGc3RhdHVzGAIgAigOMhIuQ29kZUJhdHRsZS5TdGF0dXMSKgoNdGFyZ2V0" + 
-          "UG9zdGlvbhgDIAEoCzITLkNvZGVCYXR0bGUuVmVjdG9yMiJpChBKb2luUm9v" + 
-          "bVJlc3BvbnNlEgoKAmlkGAEgAigFEiQKBHNpemUYAiACKAsyFi5Db2RlQmF0" + 
-          "dGxlLlZlY3RvcjJJbnQSIwoHbWFyaW5lcxgDIAMoCzISLkNvZGVCYXR0bGUu" + 
-          "TWFyaW5lIjoKFENyZWF0ZU1hcmluZVJlc3BvbnNlEiIKBm1hcmluZRgBIAIo" + 
-          "CzISLkNvZGVCYXR0bGUuTWFyaW5lKjwKB0NtZEVudW0SDAoIam9pbnJvb20Q" + 
-          "ARIQCgxjcmVhdGVtYXJpbmUQAhIRCg1tYXJpbmVvcGVyYXRlEAMqQAoLTWVz" + 
-          "c2FnZUVudW0SDwoLY21kcmVzcG9uc2UQABIPCgtzZW5jZXVwZGF0ZRABEg8K" + 
-          "C3N0YXJ0YmF0dGxlEAI=");
+          "IlIKC1NlbmNlVXBkYXRlEh8KA293bhgBIAMoCzISLkNvZGVCYXR0bGUuTWFy" + 
+          "aW5lEiIKBm90aGVycxgCIAMoCzISLkNvZGVCYXR0bGUuTWFyaW5lIhoKCEpv" + 
+          "aW5Sb29tEg4KBnJvb21pZBgBIAIoBSJFCgxDcmVhdGVNYXJpbmUSDgoGcm9v" + 
+          "bWlkGAEgAigFEiUKCHBvc2l0aW9uGAIgAigLMhMuQ29kZUJhdHRsZS5WZWN0" + 
+          "b3IyImsKDU1hcmluZU9wZXJhdGUSCgoCaWQYASACKAUSIgoGc3RhdHVzGAIg" + 
+          "AigOMhIuQ29kZUJhdHRsZS5TdGF0dXMSKgoNdGFyZ2V0UG9zdGlvbhgDIAEo" + 
+          "CzITLkNvZGVCYXR0bGUuVmVjdG9yMiJpChBKb2luUm9vbVJlc3BvbnNlEgoK" + 
+          "AmlkGAEgAigFEiQKBHNpemUYAiACKAsyFi5Db2RlQmF0dGxlLlZlY3RvcjJJ" + 
+          "bnQSIwoHbWFyaW5lcxgDIAMoCzISLkNvZGVCYXR0bGUuTWFyaW5lIjoKFENy" + 
+          "ZWF0ZU1hcmluZVJlc3BvbnNlEiIKBm1hcmluZRgBIAIoCzISLkNvZGVCYXR0" + 
+          "bGUuTWFyaW5lKjwKB0NtZEVudW0SDAoIam9pbnJvb20QARIQCgxjcmVhdGVt" + 
+          "YXJpbmUQAhIRCg1tYXJpbmVvcGVyYXRlEAMqQAoLTWVzc2FnZUVudW0SDwoL" + 
+          "Y21kcmVzcG9uc2UQABIPCgtzZW5jZXVwZGF0ZRABEg8KC3N0YXJ0YmF0dGxl" + 
+          "EAI=");
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
         internal__static_CodeBattle_Api_Cmd__Descriptor = Descriptor.MessageTypes[0];
@@ -85,7 +86,7 @@ namespace CodeBattle.Api {
         internal__static_CodeBattle_Api_SenceUpdate__Descriptor = Descriptor.MessageTypes[3];
         internal__static_CodeBattle_Api_SenceUpdate__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.SenceUpdate, global::CodeBattle.Api.SenceUpdate.Builder>(internal__static_CodeBattle_Api_SenceUpdate__Descriptor,
-                new string[] { "Marine", });
+                new string[] { "Own", "Others", });
         internal__static_CodeBattle_Api_JoinRoom__Descriptor = Descriptor.MessageTypes[4];
         internal__static_CodeBattle_Api_JoinRoom__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoom, global::CodeBattle.Api.JoinRoom.Builder>(internal__static_CodeBattle_Api_JoinRoom__Descriptor,
@@ -1514,8 +1515,8 @@ namespace CodeBattle.Api {
   public sealed partial class SenceUpdate : pb::GeneratedMessage<SenceUpdate, SenceUpdate.Builder> {
     private SenceUpdate() { }
     private static readonly SenceUpdate defaultInstance = new SenceUpdate().MakeReadOnly();
-    private static readonly string[] _senceUpdateFieldNames = new string[] { "marine" };
-    private static readonly uint[] _senceUpdateFieldTags = new uint[] { 10 };
+    private static readonly string[] _senceUpdateFieldNames = new string[] { "others", "own" };
+    private static readonly uint[] _senceUpdateFieldTags = new uint[] { 18, 10 };
     public static SenceUpdate DefaultInstance {
       get { return defaultInstance; }
     }
@@ -1536,21 +1537,36 @@ namespace CodeBattle.Api {
       get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_SenceUpdate__FieldAccessorTable; }
     }
     
-    public const int MarineFieldNumber = 1;
-    private pbc::PopsicleList<global::CodeBattle.Marine> marine_ = new pbc::PopsicleList<global::CodeBattle.Marine>();
-    public scg::IList<global::CodeBattle.Marine> MarineList {
-      get { return marine_; }
+    public const int OwnFieldNumber = 1;
+    private pbc::PopsicleList<global::CodeBattle.Marine> own_ = new pbc::PopsicleList<global::CodeBattle.Marine>();
+    public scg::IList<global::CodeBattle.Marine> OwnList {
+      get { return own_; }
     }
-    public int MarineCount {
-      get { return marine_.Count; }
+    public int OwnCount {
+      get { return own_.Count; }
     }
-    public global::CodeBattle.Marine GetMarine(int index) {
-      return marine_[index];
+    public global::CodeBattle.Marine GetOwn(int index) {
+      return own_[index];
+    }
+    
+    public const int OthersFieldNumber = 2;
+    private pbc::PopsicleList<global::CodeBattle.Marine> others_ = new pbc::PopsicleList<global::CodeBattle.Marine>();
+    public scg::IList<global::CodeBattle.Marine> OthersList {
+      get { return others_; }
+    }
+    public int OthersCount {
+      get { return others_.Count; }
+    }
+    public global::CodeBattle.Marine GetOthers(int index) {
+      return others_[index];
     }
     
     public override bool IsInitialized {
       get {
-        foreach (global::CodeBattle.Marine element in MarineList) {
+        foreach (global::CodeBattle.Marine element in OwnList) {
+          if (!element.IsInitialized) return false;
+        }
+        foreach (global::CodeBattle.Marine element in OthersList) {
           if (!element.IsInitialized) return false;
         }
         return true;
@@ -1560,8 +1576,11 @@ namespace CodeBattle.Api {
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
       string[] field_names = _senceUpdateFieldNames;
-      if (marine_.Count > 0) {
-        output.WriteMessageArray(1, field_names[0], marine_);
+      if (own_.Count > 0) {
+        output.WriteMessageArray(1, field_names[1], own_);
+      }
+      if (others_.Count > 0) {
+        output.WriteMessageArray(2, field_names[0], others_);
       }
       UnknownFields.WriteTo(output);
     }
@@ -1573,8 +1592,11 @@ namespace CodeBattle.Api {
         if (size != -1) return size;
         
         size = 0;
-        foreach (global::CodeBattle.Marine element in MarineList) {
+        foreach (global::CodeBattle.Marine element in OwnList) {
           size += pb::CodedOutputStream.ComputeMessageSize(1, element);
+        }
+        foreach (global::CodeBattle.Marine element in OthersList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(2, element);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -1613,7 +1635,8 @@ namespace CodeBattle.Api {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
     private SenceUpdate MakeReadOnly() {
-      marine_.MakeReadOnly();
+      own_.MakeReadOnly();
+      others_.MakeReadOnly();
       return this;
     }
     
@@ -1701,8 +1724,11 @@ namespace CodeBattle.Api {
       public override Builder MergeFrom(SenceUpdate other) {
         if (other == global::CodeBattle.Api.SenceUpdate.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.marine_.Count != 0) {
-          result.marine_.Add(other.marine_);
+        if (other.own_.Count != 0) {
+          result.own_.Add(other.own_);
+        }
+        if (other.others_.Count != 0) {
+          result.others_.Add(other.others_);
         }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
@@ -1748,7 +1774,11 @@ namespace CodeBattle.Api {
               break;
             }
             case 10: {
-              input.ReadMessageArray(tag, field_name, result.marine_, global::CodeBattle.Marine.DefaultInstance, extensionRegistry);
+              input.ReadMessageArray(tag, field_name, result.own_, global::CodeBattle.Marine.DefaultInstance, extensionRegistry);
+              break;
+            }
+            case 18: {
+              input.ReadMessageArray(tag, field_name, result.others_, global::CodeBattle.Marine.DefaultInstance, extensionRegistry);
               break;
             }
           }
@@ -1761,47 +1791,91 @@ namespace CodeBattle.Api {
       }
       
       
-      public pbc::IPopsicleList<global::CodeBattle.Marine> MarineList {
-        get { return PrepareBuilder().marine_; }
+      public pbc::IPopsicleList<global::CodeBattle.Marine> OwnList {
+        get { return PrepareBuilder().own_; }
       }
-      public int MarineCount {
-        get { return result.MarineCount; }
+      public int OwnCount {
+        get { return result.OwnCount; }
       }
-      public global::CodeBattle.Marine GetMarine(int index) {
-        return result.GetMarine(index);
+      public global::CodeBattle.Marine GetOwn(int index) {
+        return result.GetOwn(index);
       }
-      public Builder SetMarine(int index, global::CodeBattle.Marine value) {
+      public Builder SetOwn(int index, global::CodeBattle.Marine value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.marine_[index] = value;
+        result.own_[index] = value;
         return this;
       }
-      public Builder SetMarine(int index, global::CodeBattle.Marine.Builder builderForValue) {
+      public Builder SetOwn(int index, global::CodeBattle.Marine.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.marine_[index] = builderForValue.Build();
+        result.own_[index] = builderForValue.Build();
         return this;
       }
-      public Builder AddMarine(global::CodeBattle.Marine value) {
+      public Builder AddOwn(global::CodeBattle.Marine value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.marine_.Add(value);
+        result.own_.Add(value);
         return this;
       }
-      public Builder AddMarine(global::CodeBattle.Marine.Builder builderForValue) {
+      public Builder AddOwn(global::CodeBattle.Marine.Builder builderForValue) {
         pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
         PrepareBuilder();
-        result.marine_.Add(builderForValue.Build());
+        result.own_.Add(builderForValue.Build());
         return this;
       }
-      public Builder AddRangeMarine(scg::IEnumerable<global::CodeBattle.Marine> values) {
+      public Builder AddRangeOwn(scg::IEnumerable<global::CodeBattle.Marine> values) {
         PrepareBuilder();
-        result.marine_.Add(values);
+        result.own_.Add(values);
         return this;
       }
-      public Builder ClearMarine() {
+      public Builder ClearOwn() {
         PrepareBuilder();
-        result.marine_.Clear();
+        result.own_.Clear();
+        return this;
+      }
+      
+      public pbc::IPopsicleList<global::CodeBattle.Marine> OthersList {
+        get { return PrepareBuilder().others_; }
+      }
+      public int OthersCount {
+        get { return result.OthersCount; }
+      }
+      public global::CodeBattle.Marine GetOthers(int index) {
+        return result.GetOthers(index);
+      }
+      public Builder SetOthers(int index, global::CodeBattle.Marine value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.others_[index] = value;
+        return this;
+      }
+      public Builder SetOthers(int index, global::CodeBattle.Marine.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.others_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddOthers(global::CodeBattle.Marine value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.others_.Add(value);
+        return this;
+      }
+      public Builder AddOthers(global::CodeBattle.Marine.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.others_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeOthers(scg::IEnumerable<global::CodeBattle.Marine> values) {
+        PrepareBuilder();
+        result.others_.Add(values);
+        return this;
+      }
+      public Builder ClearOthers() {
+        PrepareBuilder();
+        result.others_.Clear();
         return this;
       }
     }

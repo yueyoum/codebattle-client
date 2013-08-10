@@ -24,6 +24,11 @@ public class NetWorking : MonoBehaviour {
 	private bool roomOwner = false;
 	private Hashtable marines = new Hashtable();
 	
+	private int groups = 1;
+	private System.Random rnd = new System.Random();
+	
+	private List<Color> colors = new List<Color>();
+	
 
 	void Awake () {
 		MainScript = GetComponent<Main>();
@@ -49,6 +54,12 @@ public class NetWorking : MonoBehaviour {
 			connected = false;
 			print("NewWorking NOT work!");
 		}
+		
+		colors.Add(Color.blue);
+		colors.Add(Color.cyan);
+		colors.Add(Color.green);
+		colors.Add(Color.magenta);
+		colors.Add(Color.red);
 	}
 
 	
@@ -119,6 +130,9 @@ public class NetWorking : MonoBehaviour {
 		
 		if(msg.Msg == CodeBattle.Observer.MessageEnum.senceupdate) {
 			// main logic here!
+			
+			Color c = colors[rnd.Next(colors.Count)];
+			bool new_marine = false;
 
 			foreach(CodeBattle.Marine marine in msg.Update.MarineList) {
 				if(marines.Contains(marine.Id)) {
@@ -126,6 +140,7 @@ public class NetWorking : MonoBehaviour {
 					OperateMarine(marine);
 					
 				} else {
+					new_marine = true;
 
 					// create new marine in sence
 					GameObject marineInstance = MainScript.CreateOneMarine(
@@ -134,11 +149,16 @@ public class NetWorking : MonoBehaviour {
 					Marine MarineScript = marineInstance.GetComponent<Marine>();
 					MarineScript.hp = marine.Hp;
 					MarineScript.id = marine.Id;
+					MarineScript.groupId = groups;
+					MarineScript.transform.FindChild("MarineLow").renderer.material.color = c;
 					
 
 					marines.Add(marine.Id, MarineScript);
 				}
 			}
+			
+			groups++;
+			if(new_marine) colors.Remove(c);
 
 		}
 	}
@@ -149,8 +169,16 @@ public class NetWorking : MonoBehaviour {
 
 		MarineScript.status = marine.Status;
 		MarineScript.hp = marine.Hp;
-		if(marine.HasTargetPosition) {
+		if (marine.Status == CodeBattle.Status.Run) {
 			MarineScript.SetTargetPosition(marine.TargetPosition.X, marine.TargetPosition.Z);
+		}
+		else if (marine.Status == CodeBattle.Status.GunAttack) {
+			MarineScript.SetGunShootPosition(marine.TargetPosition.X, marine.TargetPosition.Z);
+			CollectionAndReportMarineStates(marine.Id, CodeBattle.Observer.ReportEnum.gunattack);
+		}
+		else if (marine.Status == CodeBattle.Status.Flares) {
+			CollectionAndReportMarineStates(marine.Id, CodeBattle.Observer.ReportEnum.flares);
+			StartCoroutine( MarineFlaresReport(marine.Id) );
 		}
 	}
 
@@ -203,7 +231,24 @@ public class NetWorking : MonoBehaviour {
 		
 		CodeBattle.Observer.Cmd cmd = cmdBuilder.BuildPartial();
 		return CmdSerialize(cmd);
-
+	}
+	
+	byte[] CmdMarineDamageReport(int attackId, int damageId) {
+		Marine attackMarineScript = (Marine)marines[attackId];
+		Marine damageMarineScript = (Marine)marines[damageId];
+		
+		CodeBattle.Observer.MarineReport.Builder rb = new CodeBattle.Observer.MarineReport.Builder();
+		rb.Report = CodeBattle.Observer.ReportEnum.damage;
+		
+		rb.Mattack = attackMarineScript.GetMarineStatus().BuildPartial();
+		rb.Mdamage = damageMarineScript.GetMarineStatus().BuildPartial();
+		
+		CodeBattle.Observer.Cmd.Builder cmdBuilder = new CodeBattle.Observer.Cmd.Builder();
+		cmdBuilder.Cmd_ = CodeBattle.Observer.CmdEnum.marinereport;
+		cmdBuilder.Mrt = rb.BuildPartial();
+		
+		CodeBattle.Observer.Cmd cmd = cmdBuilder.BuildPartial();
+		return CmdSerialize(cmd);
 	}
 
 
@@ -215,19 +260,56 @@ public class NetWorking : MonoBehaviour {
 		return buffer;
 	}
 	
+	IEnumerator MarineFlaresReport(int MarineId) {
+		yield return new WaitForSeconds(1f);
+		CollectionAndReportMarineStates(MarineId, CodeBattle.Observer.ReportEnum.flares2);
+	}
+	
+	
+	void CollectionAndReportMarineStates(int ReportId, CodeBattle.Observer.ReportEnum ReportType) {
+		CodeBattle.Observer.MarineReport.Builder rb = new CodeBattle.Observer.MarineReport.Builder();
+		rb.Report = ReportType;
+		rb.ReporterId = ReportId;
+		
+		foreach(object _m in marines.Values) {
+			Marine m = (Marine)(_m);
+			CodeBattle.Observer.MarineStatus.Builder msb = new CodeBattle.Observer.MarineStatus.Builder();
+			msb.Id = m.id;
+			msb.Status = m.status;
+			
+			CodeBattle.Vector2.Builder vb = new CodeBattle.Vector2.Builder();
+			vb.X = m.transform.position.x;
+			vb.Z = m.transform.position.z;
+			
+			msb.Position = vb.BuildPartial();
+			
+			rb.AddMarines(msb);
+		}
+		
+		CodeBattle.Observer.Cmd.Builder cmdBuilder = new CodeBattle.Observer.Cmd.Builder();
+		cmdBuilder.Cmd_ = CodeBattle.Observer.CmdEnum.marinereport;
+		cmdBuilder.Mrt = rb.BuildPartial();
+		
+		CodeBattle.Observer.Cmd cmd = cmdBuilder.BuildPartial();
+		byte[] Data = AddLengthHeader( CmdSerialize(cmd) );
+		SockSend(Data);
+	}
+	
 
 
 	public void MarineIdleReport(int MarineId, float cx, float cz) {
+		if (!connected) return;
 		if (!roomOwner) return;
 		byte[] cmd = AddLengthHeader(CmdMarineIdleReport(MarineId, cx, cz));
 		SockSend(cmd);
 	}
 	
-	public void MarineReport(int MarineId, CodeBattle.Status Status, float cx, float cz, float tx, float tz) {
-		/*
-		if (!roomOwner) return;
-		byte[] cmd = AddLengthHeader(CmdMarineReport(MarineId, Status, cx, cz, tx, tz));
+	public void BulletHitted (int attackId, int damageId) {
+		if(!connected) return;
+		if(!roomOwner) return;
+		
+		Debug.Log("BulletHitted" + attackId + " -> " + damageId);
+		byte[] cmd = AddLengthHeader(CmdMarineDamageReport(attackId, damageId));
 		SockSend(cmd);
-		*/
 	}
 }

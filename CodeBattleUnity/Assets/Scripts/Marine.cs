@@ -6,66 +6,74 @@ using Status = CodeBattle.Status;
 
 public class Marine : MonoBehaviour {
 	public float moveSpeed = 5f;				// moving speed
-	public Projector ShadowProjector;					// shadow projector
-	public Projector GunRangeProjector;		// machine gun range projector
-	public Projector RifleRangeProjector;				// rifle grenade range projector
-
-	
-	public float GunRange = 4f;			// machine gun attack range
-	public float RifleRange = 15f;		// rifle grenade attack range
-	public float JumpDistance = 10f;
 	
 	public Transform RifleEndpoint;
 	public GameObject PrefabRifleBullet;
+	public GameObject PrefabFlares;
 	
 	
 	private float targetDistance = 0f;
 	
-	private float RifleDamageRange;
-	
 	private Vector3 targetPostion;				// where to move
-	public GameObject attackTarget = null;		// gun attack target
+	private Vector3 gunShootPosition;
+	
+
 	
 	private Main MainScript;
 	private NetWorking NewWorkingScript;
-	
 
-	private bool selected = false;
-	
 	
 	public Status status = Status.Idle;
 	public int hp;
 	public int id;
+	public int groupId;
 	
 	void Awake () {
 		GameObject SenceMain = GameObject.Find("SenceMain");
 		MainScript = SenceMain.GetComponent<Main>();
 
-		
 		NewWorkingScript = SenceMain.GetComponent<NetWorking>();
+		targetPostion = transform.position;
+		animation["Run"].speed = 2f;
 
 	}
 
 	// Use this for initialization
 	void Start () {
-		targetPostion = transform.position;
-		
-		RifleDamageRange = MainScript.RifleDamageRange;
-		
-		animation["Run"].speed = 2f;
+
 	}
 
 
 	// Update is called once per frame
 	void Update () {
 		if (status == Status.Dead) return;
+		if (status == Status.Flares) {
+			animation.Play("RifleShoot");
+			EmitFlares();
+			animation.CrossFade("Idle");
+			status = Status.Idle;
+			//NewWorkingScript.MarineIdleReport(id, transform.position.x, transform.position.z);
+		}
 		
 		if(status == Status.GunAttack) {
-			animation.CrossFade("GunShoot");
-			
-			return;
-
+			animation.Play("GunShoot");
+			GunShoot();
+			animation.CrossFade("Idle");
+			status = Status.Idle;
+			//NewWorkingScript.MarineIdleReport(id, transform.position.x, transform.position.z);
 		}
+		
+		
+		/*
+		if(Input.GetKeyDown(KeyCode.A)) {
+			status = Status.Flares;
+		}
+		
+		if (Input.GetKeyDown(KeyCode.F)) {
+			status = Status.GunAttack;
+		}
+		*/
+		
 
 		
 		if(status == Status.Run) {
@@ -86,16 +94,70 @@ public class Marine : MonoBehaviour {
 		}
  	}
 	
+	
 	void FaceTo(Vector3 target) {
 		if (target == transform.position) return;
-		targetPostion = target;
-		targetPostion.y = transform.position.y;
-		Quaternion rot = Quaternion.LookRotation(targetPostion - transform.position);
+		Quaternion rot = Quaternion.LookRotation(target - transform.position);
 		if (transform.rotation != rot) transform.rotation = rot;
 	}
-
+	
+	void EmitFlares() {
+		GameObject flares = Instantiate(
+			PrefabFlares,
+			RifleEndpoint.position,
+			Quaternion.Euler(0, 0, 0)
+			) as GameObject;
+	}
+	
+	void GunShoot() {
+		Vector3 startPosition = new Vector3(RifleEndpoint.position.x, 1f, RifleEndpoint.position.z);
+		
+		/*
+		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		RaycastHit hit;
+		Physics.Raycast(ray, out hit, Mathf.Infinity);
+		
+		FaceTo(hit.point);
+		*/
+		
+		GameObject bullet = Instantiate(
+			PrefabRifleBullet,
+			startPosition,
+			transform.rotation
+			) as GameObject;
+		
+		
+		
+		RifleBullet rbScript = bullet.GetComponent<RifleBullet>();
+		rbScript.targetPosition = gunShootPosition;
+		//rbScript.targetPosition = new Vector3(hit.point.x, 1f, hit.point.z);
+		rbScript.shooterId = id;
+		rbScript.shooterGroupId = groupId;
+	}
 	
 	public void SetTargetPosition(float x, float z) {
-		FaceTo( new Vector3(x, 0, z) );
+		Vector3 p = new Vector3(x, 0, z);
+		FaceTo(p);
+		targetPostion = p;
+	}
+	
+	public void SetGunShootPosition(float x, float z) {
+		Vector3 p = new Vector3(x, 0, z);
+		FaceTo(p);
+		p.y = 1f;
+		gunShootPosition = p;
+	}
+	
+	public CodeBattle.Observer.MarineStatus.Builder GetMarineStatus() {
+		CodeBattle.Observer.MarineStatus.Builder b = new CodeBattle.Observer.MarineStatus.Builder();
+		b.Id = id;
+		b.Status = status;
+		
+		CodeBattle.Vector2.Builder vb = new CodeBattle.Vector2.Builder();
+		vb.X = transform.position.x;
+		vb.Z = transform.position.z;
+		
+		b.Position = vb.BuildPartial();
+		return b;
 	}
 }

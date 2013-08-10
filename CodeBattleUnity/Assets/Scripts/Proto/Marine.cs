@@ -35,12 +35,14 @@ namespace CodeBattle {
         byte[] descriptorData = global::System.Convert.FromBase64String(
             "CgxtYXJpbmUucHJvdG8SCkNvZGVCYXR0bGUiHwoHVmVjdG9yMhIJCgF4GAEg" + 
             "AigCEgkKAXoYAiACKAIiIgoKVmVjdG9yMkludBIJCgF4GAEgAigFEgkKAXoY" + 
-            "AiACKAUimAEKBk1hcmluZRIKCgJpZBgBIAIoBRIKCgJocBgCIAIoBRIlCghw" + 
+            "AiACKAUizgEKBk1hcmluZRIKCgJpZBgBIAIoBRIKCgJocBgCIAIoBRIlCghw" + 
             "b3NpdGlvbhgDIAIoCzITLkNvZGVCYXR0bGUuVmVjdG9yMhIiCgZzdGF0dXMY" + 
             "BCACKA4yEi5Db2RlQmF0dGxlLlN0YXR1cxIrCg50YXJnZXRQb3NpdGlvbhgF" + 
-            "IAEoCzITLkNvZGVCYXR0bGUuVmVjdG9yMipACgZTdGF0dXMSCAoESWRsZRAA" + 
-            "EgcKA1J1bhABEgoKBkZsYXJlcxACEg0KCUd1bkF0dGFjaxADEggKBERlYWQQ" + 
-            "BA==");
+            "IAEoCzITLkNvZGVCYXR0bGUuVmVjdG9yMhIUCgxmbGFyZXNBbW91bnQYBiAB" + 
+            "KAUSHgoEcm9sZRgHIAEoDjIQLkNvZGVCYXR0bGUuUm9sZSpACgZTdGF0dXMS" + 
+            "CAoESWRsZRAAEgcKA1J1bhABEgoKBkZsYXJlcxACEg0KCUd1bkF0dGFjaxAD" + 
+            "EggKBERlYWQQBCotCgRSb2xlEgoKBk5vcm1hbBAAEgwKCEF0dGFja2VyEAES" + 
+            "CwoHSW5qdXJlZBAC");
         pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
           descriptor = root;
           internal__static_CodeBattle_Vector2__Descriptor = Descriptor.MessageTypes[0];
@@ -54,7 +56,7 @@ namespace CodeBattle {
           internal__static_CodeBattle_Marine__Descriptor = Descriptor.MessageTypes[2];
           internal__static_CodeBattle_Marine__FieldAccessorTable = 
               new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Marine, global::CodeBattle.Marine.Builder>(internal__static_CodeBattle_Marine__Descriptor,
-                  new string[] { "Id", "Hp", "Position", "Status", "TargetPosition", });
+                  new string[] { "Id", "Hp", "Position", "Status", "TargetPosition", "FlaresAmount", "Role", });
           return null;
         };
         pbd::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
@@ -72,6 +74,12 @@ namespace CodeBattle {
     Flares = 2,
     GunAttack = 3,
     Dead = 4,
+  }
+  
+  public enum Role {
+    Normal = 0,
+    Attacker = 1,
+    Injured = 2,
   }
   
   #endregion
@@ -711,8 +719,8 @@ namespace CodeBattle {
   public sealed partial class Marine : pb::GeneratedMessage<Marine, Marine.Builder> {
     private Marine() { }
     private static readonly Marine defaultInstance = new Marine().MakeReadOnly();
-    private static readonly string[] _marineFieldNames = new string[] { "hp", "id", "position", "status", "targetPosition" };
-    private static readonly uint[] _marineFieldTags = new uint[] { 16, 8, 26, 32, 42 };
+    private static readonly string[] _marineFieldNames = new string[] { "flaresAmount", "hp", "id", "position", "role", "status", "targetPosition" };
+    private static readonly uint[] _marineFieldTags = new uint[] { 48, 16, 8, 26, 56, 32, 42 };
     public static Marine DefaultInstance {
       get { return defaultInstance; }
     }
@@ -783,6 +791,26 @@ namespace CodeBattle {
       get { return targetPosition_ ?? global::CodeBattle.Vector2.DefaultInstance; }
     }
     
+    public const int FlaresAmountFieldNumber = 6;
+    private bool hasFlaresAmount;
+    private int flaresAmount_;
+    public bool HasFlaresAmount {
+      get { return hasFlaresAmount; }
+    }
+    public int FlaresAmount {
+      get { return flaresAmount_; }
+    }
+    
+    public const int RoleFieldNumber = 7;
+    private bool hasRole;
+    private global::CodeBattle.Role role_ = global::CodeBattle.Role.Normal;
+    public bool HasRole {
+      get { return hasRole; }
+    }
+    public global::CodeBattle.Role Role {
+      get { return role_; }
+    }
+    
     public override bool IsInitialized {
       get {
         if (!hasId) return false;
@@ -801,19 +829,25 @@ namespace CodeBattle {
       int size = SerializedSize;
       string[] field_names = _marineFieldNames;
       if (hasId) {
-        output.WriteInt32(1, field_names[1], Id);
+        output.WriteInt32(1, field_names[2], Id);
       }
       if (hasHp) {
-        output.WriteInt32(2, field_names[0], Hp);
+        output.WriteInt32(2, field_names[1], Hp);
       }
       if (hasPosition) {
-        output.WriteMessage(3, field_names[2], Position);
+        output.WriteMessage(3, field_names[3], Position);
       }
       if (hasStatus) {
-        output.WriteEnum(4, field_names[3], (int) Status, Status);
+        output.WriteEnum(4, field_names[5], (int) Status, Status);
       }
       if (hasTargetPosition) {
-        output.WriteMessage(5, field_names[4], TargetPosition);
+        output.WriteMessage(5, field_names[6], TargetPosition);
+      }
+      if (hasFlaresAmount) {
+        output.WriteInt32(6, field_names[0], FlaresAmount);
+      }
+      if (hasRole) {
+        output.WriteEnum(7, field_names[4], (int) Role, Role);
       }
       UnknownFields.WriteTo(output);
     }
@@ -839,6 +873,12 @@ namespace CodeBattle {
         }
         if (hasTargetPosition) {
           size += pb::CodedOutputStream.ComputeMessageSize(5, TargetPosition);
+        }
+        if (hasFlaresAmount) {
+          size += pb::CodedOutputStream.ComputeInt32Size(6, FlaresAmount);
+        }
+        if (hasRole) {
+          size += pb::CodedOutputStream.ComputeEnumSize(7, (int) Role);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -979,6 +1019,12 @@ namespace CodeBattle {
         if (other.HasTargetPosition) {
           MergeTargetPosition(other.TargetPosition);
         }
+        if (other.HasFlaresAmount) {
+          FlaresAmount = other.FlaresAmount;
+        }
+        if (other.HasRole) {
+          Role = other.Role;
+        }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
@@ -1058,6 +1104,22 @@ namespace CodeBattle {
               }
               input.ReadMessage(subBuilder, extensionRegistry);
               TargetPosition = subBuilder.BuildPartial();
+              break;
+            }
+            case 48: {
+              result.hasFlaresAmount = input.ReadInt32(ref result.flaresAmount_);
+              break;
+            }
+            case 56: {
+              object unknown;
+              if(input.ReadEnum(ref result.role_, out unknown)) {
+                result.hasRole = true;
+              } else if(unknown is int) {
+                if (unknownFields == null) {
+                  unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+                }
+                unknownFields.MergeVarintField(7, (ulong)(int)unknown);
+              }
               break;
             }
           }
@@ -1207,6 +1269,46 @@ namespace CodeBattle {
         PrepareBuilder();
         result.hasTargetPosition = false;
         result.targetPosition_ = null;
+        return this;
+      }
+      
+      public bool HasFlaresAmount {
+        get { return result.hasFlaresAmount; }
+      }
+      public int FlaresAmount {
+        get { return result.FlaresAmount; }
+        set { SetFlaresAmount(value); }
+      }
+      public Builder SetFlaresAmount(int value) {
+        PrepareBuilder();
+        result.hasFlaresAmount = true;
+        result.flaresAmount_ = value;
+        return this;
+      }
+      public Builder ClearFlaresAmount() {
+        PrepareBuilder();
+        result.hasFlaresAmount = false;
+        result.flaresAmount_ = 0;
+        return this;
+      }
+      
+      public bool HasRole {
+       get { return result.hasRole; }
+      }
+      public global::CodeBattle.Role Role {
+        get { return result.Role; }
+        set { SetRole(value); }
+      }
+      public Builder SetRole(global::CodeBattle.Role value) {
+        PrepareBuilder();
+        result.hasRole = true;
+        result.role_ = value;
+        return this;
+      }
+      public Builder ClearRole() {
+        PrepareBuilder();
+        result.hasRole = false;
+        result.role_ = global::CodeBattle.Role.Normal;
         return this;
       }
     }

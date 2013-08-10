@@ -21,13 +21,8 @@ using System.Collections;
 
 public class Main : MonoBehaviour {
 	public GameObject PrefabMarine;				// marine prefab
-	public Projector RifleDamage;				// rifle damage range projetor
-	public float RifleDamageRange = 3f;
 	
-	public Vector3 RifleAttackPosition = Vector3.zero;
-	
-	
-	
+	/*
 	private Vector3 DragStart;
 	private Vector3 DragEnd;
 	
@@ -43,27 +38,32 @@ public class Main : MonoBehaviour {
 	private ArrayList selectedUnit = new ArrayList();
 	
 	private bool hitted;
-	
+	*/
 	
 
+
 	void Awake () {
-		CreateMarines();
+		//CreateMarines();
+
 	}
 
 	// Use this for initialization
 	void Start () {
+		/*
 		PrepareSelectionRectangle();
 		
 		RifleDamage.enabled = false;
 		RifleDamage.orthographic = true;
 		RifleDamage.orthoGraphicSize = RifleDamageRange;
+		*/
 	}
 	
 
-	
+	/*
 	void OnGUI() {
 		GUI.DrawTexture(_rect, _tex);
 	}
+	*/
 	
 	// Update is called once per frame
 	void Update () {
@@ -110,7 +110,7 @@ public class Main : MonoBehaviour {
 		*/
 	}
 	
-	
+	/*
 	bool CameraRaycast(out RaycastHit hit) {
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		return Physics.Raycast(ray, out hit, 1000);
@@ -145,13 +145,14 @@ public class Main : MonoBehaviour {
 	}
 	
 	void CreateMarines() {
-		/*
+
 		float y = PrefabMarine.transform.position.y;
 		CreateOneMarine(new Vector3(0, y, -12), "Marine01", "OwnMarine");
 		CreateOneMarine(new Vector3(0, y, 12), "Marine02", "EnemyMarine");
-		*/
+
 		//CreateOneMarine(Vector3.zero, "MyMarine", "OwnMarine");
 	}
+	*/
 	
 	public GameObject CreateOneMarine(Vector3 position) {		
 		GameObject marine = Instantiate(
