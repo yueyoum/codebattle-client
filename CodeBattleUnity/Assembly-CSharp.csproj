@@ -48,11 +48,13 @@
      <Compile Include="Assets\Scripts\JumpTo.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\Marine.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\NetWorking.cs" />
      <Compile Include="Assets\Scripts\Proto\Api.cs" />
      <Compile Include="Assets\Scripts\Proto\Marine.cs" />
      <Compile Include="Assets\Scripts\Proto\Observer.cs" />
      <Compile Include="Assets\Scripts\RifleBullet.cs" />
+     <Compile Include="Assets\Scripts\StaticVar.cs" />
      <None Include="Assets\Standard Assets\Projectors\Guidelines.txt" />
      <None Include="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />

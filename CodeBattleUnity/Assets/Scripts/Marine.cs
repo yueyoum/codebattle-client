@@ -19,8 +19,8 @@ public class Marine : MonoBehaviour {
 	
 
 	
-	private Main MainScript;
-	private NetWorking NewWorkingScript;
+
+	private NetWorking NetWorkingScript;
 
 	
 	public Status status = Status.Idle;
@@ -28,11 +28,12 @@ public class Marine : MonoBehaviour {
 	public int id;
 	public int groupId;
 	
+	private bool dead = false;
+	
 	void Awake () {
 		GameObject SenceMain = GameObject.Find("SenceMain");
-		MainScript = SenceMain.GetComponent<Main>();
 
-		NewWorkingScript = SenceMain.GetComponent<NetWorking>();
+		NetWorkingScript = SenceMain.GetComponent<NetWorking>();
 		targetPostion = transform.position;
 		animation["Run"].speed = 2f;
 
@@ -46,7 +47,16 @@ public class Marine : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (status == Status.Dead) return;
+		if (status == Status.Dead) {
+			if (dead) return;
+			//NetWorkingScript.RemoveMLable(id);
+			animation.Play("Die");
+			Destroy(gameObject, 2);
+			dead = true;
+		}
+		
+		NetWorkingScript.UpdateMLabel(id, transform.position, hp);
+		
 		if (status == Status.Flares) {
 			animation.Play("RifleShoot");
 			EmitFlares();
@@ -64,18 +74,6 @@ public class Marine : MonoBehaviour {
 		}
 		
 		
-		/*
-		if(Input.GetKeyDown(KeyCode.A)) {
-			status = Status.Flares;
-		}
-		
-		if (Input.GetKeyDown(KeyCode.F)) {
-			status = Status.GunAttack;
-		}
-		*/
-		
-
-		
 		if(status == Status.Run) {
 			targetDistance = Vector3.Distance(transform.position, targetPostion);
 			if(targetDistance > 0) {
@@ -89,7 +87,7 @@ public class Marine : MonoBehaviour {
 				transform.position = targetPostion;
 				animation.CrossFade("Idle");
 				status = Status.Idle;
-				NewWorkingScript.MarineIdleReport(id, transform.position.x, transform.position.z);
+				NetWorkingScript.MarineIdleReport(id, transform.position.x, transform.position.z);
 			}
 		}
  	}
@@ -102,11 +100,11 @@ public class Marine : MonoBehaviour {
 	}
 	
 	void EmitFlares() {
-		GameObject flares = Instantiate(
+		Instantiate(
 			PrefabFlares,
 			RifleEndpoint.position,
 			Quaternion.Euler(0, 0, 0)
-			) as GameObject;
+			);
 	}
 	
 	void GunShoot() {

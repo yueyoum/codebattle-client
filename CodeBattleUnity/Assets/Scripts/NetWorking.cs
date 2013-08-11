@@ -11,8 +11,16 @@ using Google.ProtocolBuffers;
 
 
 public class NetWorking : MonoBehaviour {
-	private string ip = "192.168.137.98";
-	private int port = 8887;
+	
+	public Material mRed;
+	public Material mYellow;
+	public Material mBlue;
+	public Material mGreen;
+	public Material mCyan;
+	public Light flaresLight;
+	
+	private string ip;
+	private int port;
 	
 	private Socket socket;
 	private bool connected = false;
@@ -20,20 +28,48 @@ public class NetWorking : MonoBehaviour {
 	private Main MainScript;
 	
 	
-	private int roomId;
+	private int roomId = 0;
 	private bool roomOwner = false;
 	private Hashtable marines = new Hashtable();
 	
 	private int groups = 1;
 	private System.Random rnd = new System.Random();
 	
-	private List<Color> colors = new List<Color>();
+	private Hashtable mlabelRect = new Hashtable();
+	private Hashtable mlabelText = new Hashtable();
+	
+	private Hashtable marineMaterials = new Hashtable();
+	
+	private bool showBackButton = false;
+	private string backButtonText;
+
 	
 
 	void Awake () {
+		if(showBackButton)return; 
 		MainScript = GetComponent<Main>();
 		
-		IPAddress ipAddress = IPAddress.Parse(ip);
+		SetIp(CodeBattle.Static.StaticVar.ip);
+		try {
+			SetPort(CodeBattle.Static.StaticVar.port);
+		}
+		catch (Exception e) {
+			showBackButton = true;
+			backButtonText = e.Message;
+			return;
+		}
+		
+		IPAddress ipAddress;
+		
+		try {
+			ipAddress = IPAddress.Parse(ip);
+		}
+		catch {
+			showBackButton = true;
+			backButtonText = "Invalid IP Address\nBack";
+			return;
+		}
+
 		socket = new Socket(
 			AddressFamily.InterNetwork,
 			SocketType.Stream,
@@ -50,23 +86,58 @@ public class NetWorking : MonoBehaviour {
 			connected = true;
 		}
 		catch (Exception e) {
-			print (e);
+			Debug.Log(e);
 			connected = false;
-			print("NewWorking NOT work!");
+			showBackButton = true;
+			backButtonText = "Network is not available\nBack";
+			if(e.Message == "bad msg") {
+				backButtonText = "Invalid Message\nBack";
+			}
 		}
+
 		
-		colors.Add(Color.blue);
-		colors.Add(Color.cyan);
-		colors.Add(Color.green);
-		colors.Add(Color.magenta);
-		colors.Add(Color.red);
+		marineMaterials.Add("red", mRed);
+		marineMaterials.Add("yellow", mYellow);
+		marineMaterials.Add("blue", mBlue);
+		marineMaterials.Add("green", mGreen);
+		marineMaterials.Add("cyan", mCyan);
 	}
 
 	
 	// Use this for initialization
 	void Start () {
-
 	}
+	
+	
+	void OnGUI() {
+		if(showBackButton) {
+			if(GUI.Button(new Rect(Screen.width/2 - 100, Screen.height/2 - 30, 200, 60), backButtonText)) {
+				Application.LoadLevel("Start");
+			}
+		}
+		GUI.BeginGroup(new Rect(Screen.width/2 - 200/2, 10, 200, 20));
+			GUI.Label(new Rect(0, 0, 80, 20), "Room Id");
+			GUI.TextField(new Rect(80, 0, 120, 20), roomId.ToString(), 120);
+		GUI.EndGroup();
+
+		foreach(DictionaryEntry de in mlabelRect) {
+			GUIStyle style = new GUIStyle();
+			style.richText = true;
+
+			int hp = (int)mlabelText[de.Key];
+			if (hp>=60) style.normal.textColor = Color.green;
+			else if(hp>=30) style.normal.textColor = Color.yellow;
+			else style.normal.textColor = Color.red;
+			
+			string hpText = hp.ToString();
+			if (hp == 0) hpText = "";
+			
+			string text = "<size=15><b>" + hpText + "</b></size>";
+			GUI.Label((Rect)de.Value, text, style);
+		}
+		
+	}
+	
 	
 	// Update is called once per frame
 	void Update () {
@@ -79,8 +150,10 @@ public class NetWorking : MonoBehaviour {
 				ParseMsg(SockRecv());
 			}
 			catch (Exception e) {
-				print(e);
+				Debug.Log(e);
 				connected = false;
+				showBackButton = true;
+				backButtonText = "Battle End\nBack";
 				return;
 			}
 		}
@@ -111,8 +184,14 @@ public class NetWorking : MonoBehaviour {
 	
 	
 	void ParseMsg (byte[] data) {
-		CodeBattle.Observer.Message msg = CodeBattle.Observer.Message.ParseFrom(data);
-		print (msg);
+		CodeBattle.Observer.Message msg;
+		try {
+			msg = CodeBattle.Observer.Message.ParseFrom(data);
+		}
+		catch {
+			throw new Exception("bad msg");
+		}
+		// print (msg);
 		
 		if(msg.Msg == CodeBattle.Observer.MessageEnum.cmdresponse) {
 			if(msg.Response.Ret != 0) {
@@ -128,44 +207,41 @@ public class NetWorking : MonoBehaviour {
 			}
 		}
 		
-		if(msg.Msg == CodeBattle.Observer.MessageEnum.senceupdate) {
-			// main logic here!
+		if(msg.Msg == CodeBattle.Observer.MessageEnum.createmarine) {
+			string c = msg.Marines.Color;
+			Material m;
+			if (marineMaterials.Contains(c)) m = (Material)marineMaterials[c];
+			else m = mRed;
 			
-			Color c = colors[rnd.Next(colors.Count)];
-			bool new_marine = false;
-
-			foreach(CodeBattle.Marine marine in msg.Update.MarineList) {
-				if(marines.Contains(marine.Id)) {
-					// operate this marine
-					OperateMarine(marine);
-					
-				} else {
-					new_marine = true;
-
-					// create new marine in sence
-					GameObject marineInstance = MainScript.CreateOneMarine(
-						new Vector3(marine.Position.X, 0, marine.Position.Z)
-						);
-					Marine MarineScript = marineInstance.GetComponent<Marine>();
-					MarineScript.hp = marine.Hp;
-					MarineScript.id = marine.Id;
-					MarineScript.groupId = groups;
-					MarineScript.transform.FindChild("MarineLow").renderer.material.color = c;
-					
-
-					marines.Add(marine.Id, MarineScript);
-				}
+			foreach(CodeBattle.Marine marine in msg.Marines.MarineList) {
+				Vector3 pos = new Vector3(marine.Position.X, 0, marine.Position.Z);
+				GameObject marineInstance = MainScript.CreateOneMarine(pos);
+				Marine MarineScript = marineInstance.GetComponent<Marine>();
+				MarineScript.hp = marine.Hp;
+				MarineScript.id = marine.Id;
+				MarineScript.groupId = groups;
+				MarineScript.transform.FindChild("MarineLow").renderer.material = m;
+				
+				marines.Add(marine.Id, MarineScript);
 			}
 			
 			groups++;
-			if(new_marine) colors.Remove(c);
-
+		}
+		
+		if(msg.Msg == CodeBattle.Observer.MessageEnum.senceupdate) {
+			// main logic here!
+			foreach(CodeBattle.Marine marine in msg.Update.MarineList) {
+				OperateMarine(marine);
+			}
 		}
 	}
 	
 	
 	void OperateMarine(CodeBattle.Marine marine) {
 		Marine MarineScript = (Marine)marines[marine.Id];
+		if (MarineScript.status == CodeBattle.Status.Dead) {
+			return;
+		};
 
 		MarineScript.status = marine.Status;
 		MarineScript.hp = marine.Hp;
@@ -180,6 +256,7 @@ public class NetWorking : MonoBehaviour {
 			CollectionAndReportMarineStates(marine.Id, CodeBattle.Observer.ReportEnum.flares);
 			StartCoroutine( MarineFlaresReport(marine.Id) );
 		}
+
 	}
 
 	
@@ -261,7 +338,9 @@ public class NetWorking : MonoBehaviour {
 	}
 	
 	IEnumerator MarineFlaresReport(int MarineId) {
+		flaresLight.intensity = 0.3f;
 		yield return new WaitForSeconds(1f);
+		flaresLight.intensity = 0.1f;
 		CollectionAndReportMarineStates(MarineId, CodeBattle.Observer.ReportEnum.flares2);
 	}
 	
@@ -273,6 +352,7 @@ public class NetWorking : MonoBehaviour {
 		
 		foreach(object _m in marines.Values) {
 			Marine m = (Marine)(_m);
+			if (m.status == CodeBattle.Status.Dead) continue;
 			CodeBattle.Observer.MarineStatus.Builder msb = new CodeBattle.Observer.MarineStatus.Builder();
 			msb.Id = m.id;
 			msb.Status = m.status;
@@ -308,8 +388,47 @@ public class NetWorking : MonoBehaviour {
 		if(!connected) return;
 		if(!roomOwner) return;
 		
-		Debug.Log("BulletHitted" + attackId + " -> " + damageId);
+		// Debug.Log("BulletHitted" + attackId + " -> " + damageId);
 		byte[] cmd = AddLengthHeader(CmdMarineDamageReport(attackId, damageId));
 		SockSend(cmd);
+	}
+	
+	public void UpdateMLabel (int MarineId, Vector3 position, int hp) {
+		Vector3 screenPos = Camera.main.WorldToScreenPoint(position);
+		int yOffset = 26;
+		if (position.z > 25) yOffset = 30;
+		Rect rect = new Rect(screenPos.x - 8, Screen.height - screenPos.y - yOffset, 30, 20);
+		if (mlabelRect.Contains(MarineId)) {
+			mlabelRect[MarineId] = rect;
+			mlabelText[MarineId] = hp;
+		} else {
+			mlabelRect.Add(MarineId, rect);
+			mlabelText.Add(MarineId, hp);
+		}
+	}
+	
+	public void RemoveMLable (int MarineId) {
+		/*
+		mlabelRect.Remove(MarineId);
+		mlabelText.Remove(MarineId);
+		*/
+	}
+	
+	public void SetIp (string Ip) {
+		ip = Ip;
+	}
+	
+	public void SetPort (int Port) {
+		port = Port;
+	}
+	
+	public void SetPort (string Port) {
+		int res;
+		if (int.TryParse(Port, out res)) {
+			port = res;
+		}
+		else {
+			throw new Exception("Port Should be Integers\nBack");
+		}
 	}
 }

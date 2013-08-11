@@ -20,20 +20,22 @@ namespace CodeBattle.Api {
     internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.Cmd, global::CodeBattle.Api.Cmd.Builder> internal__static_CodeBattle_Api_Cmd__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_Message__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.Message, global::CodeBattle.Api.Message.Builder> internal__static_CodeBattle_Api_Message__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_JoinRoom__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoom, global::CodeBattle.Api.JoinRoom.Builder> internal__static_CodeBattle_Api_JoinRoom__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoomResponse, global::CodeBattle.Api.JoinRoomResponse.Builder> internal__static_CodeBattle_Api_JoinRoomResponse__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_CreateMarine__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarine, global::CodeBattle.Api.CreateMarine.Builder> internal__static_CodeBattle_Api_CreateMarine__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarineResponse, global::CodeBattle.Api.CreateMarineResponse.Builder> internal__static_CodeBattle_Api_CreateMarineResponse__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_MarineOperate__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.MarineOperate, global::CodeBattle.Api.MarineOperate.Builder> internal__static_CodeBattle_Api_MarineOperate__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_CmdResponse__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CmdResponse, global::CodeBattle.Api.CmdResponse.Builder> internal__static_CodeBattle_Api_CmdResponse__FieldAccessorTable;
     internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_SenceUpdate__Descriptor;
     internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.SenceUpdate, global::CodeBattle.Api.SenceUpdate.Builder> internal__static_CodeBattle_Api_SenceUpdate__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_JoinRoom__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoom, global::CodeBattle.Api.JoinRoom.Builder> internal__static_CodeBattle_Api_JoinRoom__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_CreateMarine__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarine, global::CodeBattle.Api.CreateMarine.Builder> internal__static_CodeBattle_Api_CreateMarine__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_MarineOperate__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.MarineOperate, global::CodeBattle.Api.MarineOperate.Builder> internal__static_CodeBattle_Api_MarineOperate__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoomResponse, global::CodeBattle.Api.JoinRoomResponse.Builder> internal__static_CodeBattle_Api_JoinRoomResponse__FieldAccessorTable;
-    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor;
-    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarineResponse, global::CodeBattle.Api.CreateMarineResponse.Builder> internal__static_CodeBattle_Api_CreateMarineResponse__FieldAccessorTable;
+    internal static pbd::MessageDescriptor internal__static_CodeBattle_Api_EndBattle__Descriptor;
+    internal static pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.EndBattle, global::CodeBattle.Api.EndBattle.Builder> internal__static_CodeBattle_Api_EndBattle__FieldAccessorTable;
     #endregion
     #region Descriptor
     public static pbd::FileDescriptor Descriptor {
@@ -47,28 +49,30 @@ namespace CodeBattle.Api {
           "A0NtZBIkCgNjbWQYASACKA4yFy5Db2RlQmF0dGxlLkFwaS5DbWRFbnVtEiUK" + 
           "A2pybRgCIAEoCzIYLkNvZGVCYXR0bGUuQXBpLkpvaW5Sb29tEikKA2NtZRgD" + 
           "IAEoCzIcLkNvZGVCYXR0bGUuQXBpLkNyZWF0ZU1hcmluZRIqCgNvcHQYBCAB" + 
-          "KAsyHS5Db2RlQmF0dGxlLkFwaS5NYXJpbmVPcGVyYXRlIo8BCgdNZXNzYWdl" + 
+          "KAsyHS5Db2RlQmF0dGxlLkFwaS5NYXJpbmVPcGVyYXRlIr0BCgdNZXNzYWdl" + 
           "EigKA21zZxgBIAIoDjIbLkNvZGVCYXR0bGUuQXBpLk1lc3NhZ2VFbnVtEi0K" + 
           "CHJlc3BvbnNlGAIgASgLMhsuQ29kZUJhdHRsZS5BcGkuQ21kUmVzcG9uc2US" + 
-          "KwoGdXBkYXRlGAMgASgLMhsuQ29kZUJhdHRsZS5BcGkuU2VuY2VVcGRhdGUi" + 
-          "sgEKC0NtZFJlc3BvbnNlEgsKA3JldBgBIAIoBRIkCgNjbWQYAiACKA4yFy5D" + 
-          "b2RlQmF0dGxlLkFwaS5DbWRFbnVtEjUKC2pybVJlc3BvbnNlGAMgASgLMiAu" + 
-          "Q29kZUJhdHRsZS5BcGkuSm9pblJvb21SZXNwb25zZRI5CgtjbWVSZXNwb25z" + 
-          "ZRgEIAEoCzIkLkNvZGVCYXR0bGUuQXBpLkNyZWF0ZU1hcmluZVJlc3BvbnNl" + 
-          "IlIKC1NlbmNlVXBkYXRlEh8KA293bhgBIAMoCzISLkNvZGVCYXR0bGUuTWFy" + 
-          "aW5lEiIKBm90aGVycxgCIAMoCzISLkNvZGVCYXR0bGUuTWFyaW5lIhoKCEpv" + 
-          "aW5Sb29tEg4KBnJvb21pZBgBIAIoBSJFCgxDcmVhdGVNYXJpbmUSDgoGcm9v" + 
-          "bWlkGAEgAigFEiUKCHBvc2l0aW9uGAIgAigLMhMuQ29kZUJhdHRsZS5WZWN0" + 
-          "b3IyImsKDU1hcmluZU9wZXJhdGUSCgoCaWQYASACKAUSIgoGc3RhdHVzGAIg" + 
-          "AigOMhIuQ29kZUJhdHRsZS5TdGF0dXMSKgoNdGFyZ2V0UG9zdGlvbhgDIAEo" + 
-          "CzITLkNvZGVCYXR0bGUuVmVjdG9yMiJpChBKb2luUm9vbVJlc3BvbnNlEgoK" + 
-          "AmlkGAEgAigFEiQKBHNpemUYAiACKAsyFi5Db2RlQmF0dGxlLlZlY3RvcjJJ" + 
-          "bnQSIwoHbWFyaW5lcxgDIAMoCzISLkNvZGVCYXR0bGUuTWFyaW5lIjoKFENy" + 
-          "ZWF0ZU1hcmluZVJlc3BvbnNlEiIKBm1hcmluZRgBIAIoCzISLkNvZGVCYXR0" + 
-          "bGUuTWFyaW5lKjwKB0NtZEVudW0SDAoIam9pbnJvb20QARIQCgxjcmVhdGVt" + 
-          "YXJpbmUQAhIRCg1tYXJpbmVvcGVyYXRlEAMqQAoLTWVzc2FnZUVudW0SDwoL" + 
-          "Y21kcmVzcG9uc2UQABIPCgtzZW5jZXVwZGF0ZRABEg8KC3N0YXJ0YmF0dGxl" + 
-          "EAI=");
+          "KwoGdXBkYXRlGAMgASgLMhsuQ29kZUJhdHRsZS5BcGkuU2VuY2VVcGRhdGUS" + 
+          "LAoJZW5kYmF0dGxlGAQgASgLMhkuQ29kZUJhdHRsZS5BcGkuRW5kQmF0dGxl" + 
+          "IikKCEpvaW5Sb29tEg4KBnJvb21pZBgBIAIoBRINCgVjb2xvchgCIAEoCSJp" + 
+          "ChBKb2luUm9vbVJlc3BvbnNlEgoKAmlkGAEgAigFEiQKBHNpemUYAiACKAsy" + 
+          "Fi5Db2RlQmF0dGxlLlZlY3RvcjJJbnQSIwoHbWFyaW5lcxgDIAMoCzISLkNv" + 
+          "ZGVCYXR0bGUuTWFyaW5lIkUKDENyZWF0ZU1hcmluZRIOCgZyb29taWQYASAC" + 
+          "KAUSJQoIcG9zaXRpb24YAiACKAsyEy5Db2RlQmF0dGxlLlZlY3RvcjIiOgoU" + 
+          "Q3JlYXRlTWFyaW5lUmVzcG9uc2USIgoGbWFyaW5lGAEgAigLMhIuQ29kZUJh" + 
+          "dHRsZS5NYXJpbmUiawoNTWFyaW5lT3BlcmF0ZRIKCgJpZBgBIAIoBRIiCgZz" + 
+          "dGF0dXMYAiACKA4yEi5Db2RlQmF0dGxlLlN0YXR1cxIqCg10YXJnZXRQb3N0" + 
+          "aW9uGAMgASgLMhMuQ29kZUJhdHRsZS5WZWN0b3IyIrIBCgtDbWRSZXNwb25z" + 
+          "ZRILCgNyZXQYASACKAUSJAoDY21kGAIgASgOMhcuQ29kZUJhdHRsZS5BcGku" + 
+          "Q21kRW51bRI1Cgtqcm1SZXNwb25zZRgDIAEoCzIgLkNvZGVCYXR0bGUuQXBp" + 
+          "LkpvaW5Sb29tUmVzcG9uc2USOQoLY21lUmVzcG9uc2UYBCABKAsyJC5Db2Rl" + 
+          "QmF0dGxlLkFwaS5DcmVhdGVNYXJpbmVSZXNwb25zZSJSCgtTZW5jZVVwZGF0" + 
+          "ZRIfCgNvd24YASADKAsyEi5Db2RlQmF0dGxlLk1hcmluZRIiCgZvdGhlcnMY" + 
+          "AiADKAsyEi5Db2RlQmF0dGxlLk1hcmluZSIoCglFbmRCYXR0bGUSDgoGcmVh" + 
+          "c29uGAEgAigJEgsKA3dpbhgCIAIoCCo8CgdDbWRFbnVtEgwKCGpvaW5yb29t" + 
+          "EAESEAoMY3JlYXRlbWFyaW5lEAISEQoNbWFyaW5lb3BlcmF0ZRADKk8KC01l" + 
+          "c3NhZ2VFbnVtEg8KC2NtZHJlc3BvbnNlEAASDwoLc2VuY2V1cGRhdGUQARIP" + 
+          "CgtzdGFydGJhdHRsZRACEg0KCWVuZGJhdHRsZRAD");
       pbd::FileDescriptor.InternalDescriptorAssigner assigner = delegate(pbd::FileDescriptor root) {
         descriptor = root;
         internal__static_CodeBattle_Api_Cmd__Descriptor = Descriptor.MessageTypes[0];
@@ -78,35 +82,39 @@ namespace CodeBattle.Api {
         internal__static_CodeBattle_Api_Message__Descriptor = Descriptor.MessageTypes[1];
         internal__static_CodeBattle_Api_Message__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.Message, global::CodeBattle.Api.Message.Builder>(internal__static_CodeBattle_Api_Message__Descriptor,
-                new string[] { "Msg", "Response", "Update", });
-        internal__static_CodeBattle_Api_CmdResponse__Descriptor = Descriptor.MessageTypes[2];
-        internal__static_CodeBattle_Api_CmdResponse__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CmdResponse, global::CodeBattle.Api.CmdResponse.Builder>(internal__static_CodeBattle_Api_CmdResponse__Descriptor,
-                new string[] { "Ret", "Cmd", "JrmResponse", "CmeResponse", });
-        internal__static_CodeBattle_Api_SenceUpdate__Descriptor = Descriptor.MessageTypes[3];
-        internal__static_CodeBattle_Api_SenceUpdate__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.SenceUpdate, global::CodeBattle.Api.SenceUpdate.Builder>(internal__static_CodeBattle_Api_SenceUpdate__Descriptor,
-                new string[] { "Own", "Others", });
-        internal__static_CodeBattle_Api_JoinRoom__Descriptor = Descriptor.MessageTypes[4];
+                new string[] { "Msg", "Response", "Update", "Endbattle", });
+        internal__static_CodeBattle_Api_JoinRoom__Descriptor = Descriptor.MessageTypes[2];
         internal__static_CodeBattle_Api_JoinRoom__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoom, global::CodeBattle.Api.JoinRoom.Builder>(internal__static_CodeBattle_Api_JoinRoom__Descriptor,
-                new string[] { "Roomid", });
-        internal__static_CodeBattle_Api_CreateMarine__Descriptor = Descriptor.MessageTypes[5];
+                new string[] { "Roomid", "Color", });
+        internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor = Descriptor.MessageTypes[3];
+        internal__static_CodeBattle_Api_JoinRoomResponse__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoomResponse, global::CodeBattle.Api.JoinRoomResponse.Builder>(internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor,
+                new string[] { "Id", "Size", "Marines", });
+        internal__static_CodeBattle_Api_CreateMarine__Descriptor = Descriptor.MessageTypes[4];
         internal__static_CodeBattle_Api_CreateMarine__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarine, global::CodeBattle.Api.CreateMarine.Builder>(internal__static_CodeBattle_Api_CreateMarine__Descriptor,
                 new string[] { "Roomid", "Position", });
+        internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor = Descriptor.MessageTypes[5];
+        internal__static_CodeBattle_Api_CreateMarineResponse__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarineResponse, global::CodeBattle.Api.CreateMarineResponse.Builder>(internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor,
+                new string[] { "Marine", });
         internal__static_CodeBattle_Api_MarineOperate__Descriptor = Descriptor.MessageTypes[6];
         internal__static_CodeBattle_Api_MarineOperate__FieldAccessorTable = 
             new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.MarineOperate, global::CodeBattle.Api.MarineOperate.Builder>(internal__static_CodeBattle_Api_MarineOperate__Descriptor,
                 new string[] { "Id", "Status", "TargetPostion", });
-        internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor = Descriptor.MessageTypes[7];
-        internal__static_CodeBattle_Api_JoinRoomResponse__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.JoinRoomResponse, global::CodeBattle.Api.JoinRoomResponse.Builder>(internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor,
-                new string[] { "Id", "Size", "Marines", });
-        internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor = Descriptor.MessageTypes[8];
-        internal__static_CodeBattle_Api_CreateMarineResponse__FieldAccessorTable = 
-            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CreateMarineResponse, global::CodeBattle.Api.CreateMarineResponse.Builder>(internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor,
-                new string[] { "Marine", });
+        internal__static_CodeBattle_Api_CmdResponse__Descriptor = Descriptor.MessageTypes[7];
+        internal__static_CodeBattle_Api_CmdResponse__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.CmdResponse, global::CodeBattle.Api.CmdResponse.Builder>(internal__static_CodeBattle_Api_CmdResponse__Descriptor,
+                new string[] { "Ret", "Cmd", "JrmResponse", "CmeResponse", });
+        internal__static_CodeBattle_Api_SenceUpdate__Descriptor = Descriptor.MessageTypes[8];
+        internal__static_CodeBattle_Api_SenceUpdate__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.SenceUpdate, global::CodeBattle.Api.SenceUpdate.Builder>(internal__static_CodeBattle_Api_SenceUpdate__Descriptor,
+                new string[] { "Own", "Others", });
+        internal__static_CodeBattle_Api_EndBattle__Descriptor = Descriptor.MessageTypes[9];
+        internal__static_CodeBattle_Api_EndBattle__FieldAccessorTable = 
+            new pb::FieldAccess.FieldAccessorTable<global::CodeBattle.Api.EndBattle, global::CodeBattle.Api.EndBattle.Builder>(internal__static_CodeBattle_Api_EndBattle__Descriptor,
+                new string[] { "Reason", "Win", });
         return null;
       };
       pbd::FileDescriptor.InternalBuildGeneratedFileFrom(descriptorData,
@@ -128,6 +136,7 @@ namespace CodeBattle.Api {
     cmdresponse = 0,
     senceupdate = 1,
     startbattle = 2,
+    endbattle = 3,
   }
   
   #endregion
@@ -629,8 +638,8 @@ namespace CodeBattle.Api {
   public sealed partial class Message : pb::GeneratedMessage<Message, Message.Builder> {
     private Message() { }
     private static readonly Message defaultInstance = new Message().MakeReadOnly();
-    private static readonly string[] _messageFieldNames = new string[] { "msg", "response", "update" };
-    private static readonly uint[] _messageFieldTags = new uint[] { 8, 18, 26 };
+    private static readonly string[] _messageFieldNames = new string[] { "endbattle", "msg", "response", "update" };
+    private static readonly uint[] _messageFieldTags = new uint[] { 34, 8, 18, 26 };
     public static Message DefaultInstance {
       get { return defaultInstance; }
     }
@@ -681,6 +690,16 @@ namespace CodeBattle.Api {
       get { return update_ ?? global::CodeBattle.Api.SenceUpdate.DefaultInstance; }
     }
     
+    public const int EndbattleFieldNumber = 4;
+    private bool hasEndbattle;
+    private global::CodeBattle.Api.EndBattle endbattle_;
+    public bool HasEndbattle {
+      get { return hasEndbattle; }
+    }
+    public global::CodeBattle.Api.EndBattle Endbattle {
+      get { return endbattle_ ?? global::CodeBattle.Api.EndBattle.DefaultInstance; }
+    }
+    
     public override bool IsInitialized {
       get {
         if (!hasMsg) return false;
@@ -690,6 +709,9 @@ namespace CodeBattle.Api {
         if (HasUpdate) {
           if (!Update.IsInitialized) return false;
         }
+        if (HasEndbattle) {
+          if (!Endbattle.IsInitialized) return false;
+        }
         return true;
       }
     }
@@ -698,13 +720,16 @@ namespace CodeBattle.Api {
       int size = SerializedSize;
       string[] field_names = _messageFieldNames;
       if (hasMsg) {
-        output.WriteEnum(1, field_names[0], (int) Msg, Msg);
+        output.WriteEnum(1, field_names[1], (int) Msg, Msg);
       }
       if (hasResponse) {
-        output.WriteMessage(2, field_names[1], Response);
+        output.WriteMessage(2, field_names[2], Response);
       }
       if (hasUpdate) {
-        output.WriteMessage(3, field_names[2], Update);
+        output.WriteMessage(3, field_names[3], Update);
+      }
+      if (hasEndbattle) {
+        output.WriteMessage(4, field_names[0], Endbattle);
       }
       UnknownFields.WriteTo(output);
     }
@@ -724,6 +749,9 @@ namespace CodeBattle.Api {
         }
         if (hasUpdate) {
           size += pb::CodedOutputStream.ComputeMessageSize(3, Update);
+        }
+        if (hasEndbattle) {
+          size += pb::CodedOutputStream.ComputeMessageSize(4, Endbattle);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -858,6 +886,9 @@ namespace CodeBattle.Api {
         if (other.HasUpdate) {
           MergeUpdate(other.Update);
         }
+        if (other.HasEndbattle) {
+          MergeEndbattle(other.Endbattle);
+        }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
       }
@@ -929,6 +960,15 @@ namespace CodeBattle.Api {
               }
               input.ReadMessage(subBuilder, extensionRegistry);
               Update = subBuilder.BuildPartial();
+              break;
+            }
+            case 34: {
+              global::CodeBattle.Api.EndBattle.Builder subBuilder = global::CodeBattle.Api.EndBattle.CreateBuilder();
+              if (result.hasEndbattle) {
+                subBuilder.MergeFrom(Endbattle);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              Endbattle = subBuilder.BuildPartial();
               break;
             }
           }
@@ -1040,8 +1080,1809 @@ namespace CodeBattle.Api {
         result.update_ = null;
         return this;
       }
+      
+      public bool HasEndbattle {
+       get { return result.hasEndbattle; }
+      }
+      public global::CodeBattle.Api.EndBattle Endbattle {
+        get { return result.Endbattle; }
+        set { SetEndbattle(value); }
+      }
+      public Builder SetEndbattle(global::CodeBattle.Api.EndBattle value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasEndbattle = true;
+        result.endbattle_ = value;
+        return this;
+      }
+      public Builder SetEndbattle(global::CodeBattle.Api.EndBattle.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasEndbattle = true;
+        result.endbattle_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeEndbattle(global::CodeBattle.Api.EndBattle value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasEndbattle &&
+            result.endbattle_ != global::CodeBattle.Api.EndBattle.DefaultInstance) {
+            result.endbattle_ = global::CodeBattle.Api.EndBattle.CreateBuilder(result.endbattle_).MergeFrom(value).BuildPartial();
+        } else {
+          result.endbattle_ = value;
+        }
+        result.hasEndbattle = true;
+        return this;
+      }
+      public Builder ClearEndbattle() {
+        PrepareBuilder();
+        result.hasEndbattle = false;
+        result.endbattle_ = null;
+        return this;
+      }
     }
     static Message() {
+      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class JoinRoom : pb::GeneratedMessage<JoinRoom, JoinRoom.Builder> {
+    private JoinRoom() { }
+    private static readonly JoinRoom defaultInstance = new JoinRoom().MakeReadOnly();
+    private static readonly string[] _joinRoomFieldNames = new string[] { "color", "roomid" };
+    private static readonly uint[] _joinRoomFieldTags = new uint[] { 18, 8 };
+    public static JoinRoom DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override JoinRoom DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override JoinRoom ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoom__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<JoinRoom, JoinRoom.Builder> InternalFieldAccessors {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoom__FieldAccessorTable; }
+    }
+    
+    public const int RoomidFieldNumber = 1;
+    private bool hasRoomid;
+    private int roomid_;
+    public bool HasRoomid {
+      get { return hasRoomid; }
+    }
+    public int Roomid {
+      get { return roomid_; }
+    }
+    
+    public const int ColorFieldNumber = 2;
+    private bool hasColor;
+    private string color_ = "";
+    public bool HasColor {
+      get { return hasColor; }
+    }
+    public string Color {
+      get { return color_; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasRoomid) return false;
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _joinRoomFieldNames;
+      if (hasRoomid) {
+        output.WriteInt32(1, field_names[1], Roomid);
+      }
+      if (hasColor) {
+        output.WriteString(2, field_names[0], Color);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasRoomid) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Roomid);
+        }
+        if (hasColor) {
+          size += pb::CodedOutputStream.ComputeStringSize(2, Color);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static JoinRoom ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static JoinRoom ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static JoinRoom ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static JoinRoom ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private JoinRoom MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(JoinRoom prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<JoinRoom, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(JoinRoom cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private JoinRoom result;
+      
+      private JoinRoom PrepareBuilder() {
+        if (resultIsReadOnly) {
+          JoinRoom original = result;
+          result = new JoinRoom();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override JoinRoom MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::CodeBattle.Api.JoinRoom.Descriptor; }
+      }
+      
+      public override JoinRoom DefaultInstanceForType {
+        get { return global::CodeBattle.Api.JoinRoom.DefaultInstance; }
+      }
+      
+      public override JoinRoom BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is JoinRoom) {
+          return MergeFrom((JoinRoom) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(JoinRoom other) {
+        if (other == global::CodeBattle.Api.JoinRoom.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasRoomid) {
+          Roomid = other.Roomid;
+        }
+        if (other.HasColor) {
+          Color = other.Color;
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_joinRoomFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _joinRoomFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasRoomid = input.ReadInt32(ref result.roomid_);
+              break;
+            }
+            case 18: {
+              result.hasColor = input.ReadString(ref result.color_);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasRoomid {
+        get { return result.hasRoomid; }
+      }
+      public int Roomid {
+        get { return result.Roomid; }
+        set { SetRoomid(value); }
+      }
+      public Builder SetRoomid(int value) {
+        PrepareBuilder();
+        result.hasRoomid = true;
+        result.roomid_ = value;
+        return this;
+      }
+      public Builder ClearRoomid() {
+        PrepareBuilder();
+        result.hasRoomid = false;
+        result.roomid_ = 0;
+        return this;
+      }
+      
+      public bool HasColor {
+        get { return result.hasColor; }
+      }
+      public string Color {
+        get { return result.Color; }
+        set { SetColor(value); }
+      }
+      public Builder SetColor(string value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasColor = true;
+        result.color_ = value;
+        return this;
+      }
+      public Builder ClearColor() {
+        PrepareBuilder();
+        result.hasColor = false;
+        result.color_ = "";
+        return this;
+      }
+    }
+    static JoinRoom() {
+      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class JoinRoomResponse : pb::GeneratedMessage<JoinRoomResponse, JoinRoomResponse.Builder> {
+    private JoinRoomResponse() { }
+    private static readonly JoinRoomResponse defaultInstance = new JoinRoomResponse().MakeReadOnly();
+    private static readonly string[] _joinRoomResponseFieldNames = new string[] { "id", "marines", "size" };
+    private static readonly uint[] _joinRoomResponseFieldTags = new uint[] { 8, 26, 18 };
+    public static JoinRoomResponse DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override JoinRoomResponse DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override JoinRoomResponse ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<JoinRoomResponse, JoinRoomResponse.Builder> InternalFieldAccessors {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoomResponse__FieldAccessorTable; }
+    }
+    
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private int id_;
+    public bool HasId {
+      get { return hasId; }
+    }
+    public int Id {
+      get { return id_; }
+    }
+    
+    public const int SizeFieldNumber = 2;
+    private bool hasSize;
+    private global::CodeBattle.Vector2Int size_;
+    public bool HasSize {
+      get { return hasSize; }
+    }
+    public global::CodeBattle.Vector2Int Size {
+      get { return size_ ?? global::CodeBattle.Vector2Int.DefaultInstance; }
+    }
+    
+    public const int MarinesFieldNumber = 3;
+    private pbc::PopsicleList<global::CodeBattle.Marine> marines_ = new pbc::PopsicleList<global::CodeBattle.Marine>();
+    public scg::IList<global::CodeBattle.Marine> MarinesList {
+      get { return marines_; }
+    }
+    public int MarinesCount {
+      get { return marines_.Count; }
+    }
+    public global::CodeBattle.Marine GetMarines(int index) {
+      return marines_[index];
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasId) return false;
+        if (!hasSize) return false;
+        if (!Size.IsInitialized) return false;
+        foreach (global::CodeBattle.Marine element in MarinesList) {
+          if (!element.IsInitialized) return false;
+        }
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _joinRoomResponseFieldNames;
+      if (hasId) {
+        output.WriteInt32(1, field_names[0], Id);
+      }
+      if (hasSize) {
+        output.WriteMessage(2, field_names[2], Size);
+      }
+      if (marines_.Count > 0) {
+        output.WriteMessageArray(3, field_names[1], marines_);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
+        }
+        if (hasSize) {
+          size += pb::CodedOutputStream.ComputeMessageSize(2, Size);
+        }
+        foreach (global::CodeBattle.Marine element in MarinesList) {
+          size += pb::CodedOutputStream.ComputeMessageSize(3, element);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static JoinRoomResponse ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static JoinRoomResponse ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static JoinRoomResponse ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private JoinRoomResponse MakeReadOnly() {
+      marines_.MakeReadOnly();
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(JoinRoomResponse prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<JoinRoomResponse, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(JoinRoomResponse cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private JoinRoomResponse result;
+      
+      private JoinRoomResponse PrepareBuilder() {
+        if (resultIsReadOnly) {
+          JoinRoomResponse original = result;
+          result = new JoinRoomResponse();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override JoinRoomResponse MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::CodeBattle.Api.JoinRoomResponse.Descriptor; }
+      }
+      
+      public override JoinRoomResponse DefaultInstanceForType {
+        get { return global::CodeBattle.Api.JoinRoomResponse.DefaultInstance; }
+      }
+      
+      public override JoinRoomResponse BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is JoinRoomResponse) {
+          return MergeFrom((JoinRoomResponse) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(JoinRoomResponse other) {
+        if (other == global::CodeBattle.Api.JoinRoomResponse.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasId) {
+          Id = other.Id;
+        }
+        if (other.HasSize) {
+          MergeSize(other.Size);
+        }
+        if (other.marines_.Count != 0) {
+          result.marines_.Add(other.marines_);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_joinRoomResponseFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _joinRoomResponseFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasId = input.ReadInt32(ref result.id_);
+              break;
+            }
+            case 18: {
+              global::CodeBattle.Vector2Int.Builder subBuilder = global::CodeBattle.Vector2Int.CreateBuilder();
+              if (result.hasSize) {
+                subBuilder.MergeFrom(Size);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              Size = subBuilder.BuildPartial();
+              break;
+            }
+            case 26: {
+              input.ReadMessageArray(tag, field_name, result.marines_, global::CodeBattle.Marine.DefaultInstance, extensionRegistry);
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasId {
+        get { return result.hasId; }
+      }
+      public int Id {
+        get { return result.Id; }
+        set { SetId(value); }
+      }
+      public Builder SetId(int value) {
+        PrepareBuilder();
+        result.hasId = true;
+        result.id_ = value;
+        return this;
+      }
+      public Builder ClearId() {
+        PrepareBuilder();
+        result.hasId = false;
+        result.id_ = 0;
+        return this;
+      }
+      
+      public bool HasSize {
+       get { return result.hasSize; }
+      }
+      public global::CodeBattle.Vector2Int Size {
+        get { return result.Size; }
+        set { SetSize(value); }
+      }
+      public Builder SetSize(global::CodeBattle.Vector2Int value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasSize = true;
+        result.size_ = value;
+        return this;
+      }
+      public Builder SetSize(global::CodeBattle.Vector2Int.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasSize = true;
+        result.size_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeSize(global::CodeBattle.Vector2Int value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasSize &&
+            result.size_ != global::CodeBattle.Vector2Int.DefaultInstance) {
+            result.size_ = global::CodeBattle.Vector2Int.CreateBuilder(result.size_).MergeFrom(value).BuildPartial();
+        } else {
+          result.size_ = value;
+        }
+        result.hasSize = true;
+        return this;
+      }
+      public Builder ClearSize() {
+        PrepareBuilder();
+        result.hasSize = false;
+        result.size_ = null;
+        return this;
+      }
+      
+      public pbc::IPopsicleList<global::CodeBattle.Marine> MarinesList {
+        get { return PrepareBuilder().marines_; }
+      }
+      public int MarinesCount {
+        get { return result.MarinesCount; }
+      }
+      public global::CodeBattle.Marine GetMarines(int index) {
+        return result.GetMarines(index);
+      }
+      public Builder SetMarines(int index, global::CodeBattle.Marine value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.marines_[index] = value;
+        return this;
+      }
+      public Builder SetMarines(int index, global::CodeBattle.Marine.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.marines_[index] = builderForValue.Build();
+        return this;
+      }
+      public Builder AddMarines(global::CodeBattle.Marine value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.marines_.Add(value);
+        return this;
+      }
+      public Builder AddMarines(global::CodeBattle.Marine.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.marines_.Add(builderForValue.Build());
+        return this;
+      }
+      public Builder AddRangeMarines(scg::IEnumerable<global::CodeBattle.Marine> values) {
+        PrepareBuilder();
+        result.marines_.Add(values);
+        return this;
+      }
+      public Builder ClearMarines() {
+        PrepareBuilder();
+        result.marines_.Clear();
+        return this;
+      }
+    }
+    static JoinRoomResponse() {
+      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class CreateMarine : pb::GeneratedMessage<CreateMarine, CreateMarine.Builder> {
+    private CreateMarine() { }
+    private static readonly CreateMarine defaultInstance = new CreateMarine().MakeReadOnly();
+    private static readonly string[] _createMarineFieldNames = new string[] { "position", "roomid" };
+    private static readonly uint[] _createMarineFieldTags = new uint[] { 18, 8 };
+    public static CreateMarine DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override CreateMarine DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override CreateMarine ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarine__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<CreateMarine, CreateMarine.Builder> InternalFieldAccessors {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarine__FieldAccessorTable; }
+    }
+    
+    public const int RoomidFieldNumber = 1;
+    private bool hasRoomid;
+    private int roomid_;
+    public bool HasRoomid {
+      get { return hasRoomid; }
+    }
+    public int Roomid {
+      get { return roomid_; }
+    }
+    
+    public const int PositionFieldNumber = 2;
+    private bool hasPosition;
+    private global::CodeBattle.Vector2 position_;
+    public bool HasPosition {
+      get { return hasPosition; }
+    }
+    public global::CodeBattle.Vector2 Position {
+      get { return position_ ?? global::CodeBattle.Vector2.DefaultInstance; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasRoomid) return false;
+        if (!hasPosition) return false;
+        if (!Position.IsInitialized) return false;
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _createMarineFieldNames;
+      if (hasRoomid) {
+        output.WriteInt32(1, field_names[1], Roomid);
+      }
+      if (hasPosition) {
+        output.WriteMessage(2, field_names[0], Position);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasRoomid) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Roomid);
+        }
+        if (hasPosition) {
+          size += pb::CodedOutputStream.ComputeMessageSize(2, Position);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static CreateMarine ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static CreateMarine ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static CreateMarine ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static CreateMarine ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private CreateMarine MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(CreateMarine prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<CreateMarine, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(CreateMarine cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private CreateMarine result;
+      
+      private CreateMarine PrepareBuilder() {
+        if (resultIsReadOnly) {
+          CreateMarine original = result;
+          result = new CreateMarine();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override CreateMarine MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::CodeBattle.Api.CreateMarine.Descriptor; }
+      }
+      
+      public override CreateMarine DefaultInstanceForType {
+        get { return global::CodeBattle.Api.CreateMarine.DefaultInstance; }
+      }
+      
+      public override CreateMarine BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is CreateMarine) {
+          return MergeFrom((CreateMarine) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(CreateMarine other) {
+        if (other == global::CodeBattle.Api.CreateMarine.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasRoomid) {
+          Roomid = other.Roomid;
+        }
+        if (other.HasPosition) {
+          MergePosition(other.Position);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_createMarineFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _createMarineFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasRoomid = input.ReadInt32(ref result.roomid_);
+              break;
+            }
+            case 18: {
+              global::CodeBattle.Vector2.Builder subBuilder = global::CodeBattle.Vector2.CreateBuilder();
+              if (result.hasPosition) {
+                subBuilder.MergeFrom(Position);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              Position = subBuilder.BuildPartial();
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasRoomid {
+        get { return result.hasRoomid; }
+      }
+      public int Roomid {
+        get { return result.Roomid; }
+        set { SetRoomid(value); }
+      }
+      public Builder SetRoomid(int value) {
+        PrepareBuilder();
+        result.hasRoomid = true;
+        result.roomid_ = value;
+        return this;
+      }
+      public Builder ClearRoomid() {
+        PrepareBuilder();
+        result.hasRoomid = false;
+        result.roomid_ = 0;
+        return this;
+      }
+      
+      public bool HasPosition {
+       get { return result.hasPosition; }
+      }
+      public global::CodeBattle.Vector2 Position {
+        get { return result.Position; }
+        set { SetPosition(value); }
+      }
+      public Builder SetPosition(global::CodeBattle.Vector2 value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasPosition = true;
+        result.position_ = value;
+        return this;
+      }
+      public Builder SetPosition(global::CodeBattle.Vector2.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasPosition = true;
+        result.position_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergePosition(global::CodeBattle.Vector2 value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasPosition &&
+            result.position_ != global::CodeBattle.Vector2.DefaultInstance) {
+            result.position_ = global::CodeBattle.Vector2.CreateBuilder(result.position_).MergeFrom(value).BuildPartial();
+        } else {
+          result.position_ = value;
+        }
+        result.hasPosition = true;
+        return this;
+      }
+      public Builder ClearPosition() {
+        PrepareBuilder();
+        result.hasPosition = false;
+        result.position_ = null;
+        return this;
+      }
+    }
+    static CreateMarine() {
+      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class CreateMarineResponse : pb::GeneratedMessage<CreateMarineResponse, CreateMarineResponse.Builder> {
+    private CreateMarineResponse() { }
+    private static readonly CreateMarineResponse defaultInstance = new CreateMarineResponse().MakeReadOnly();
+    private static readonly string[] _createMarineResponseFieldNames = new string[] { "marine" };
+    private static readonly uint[] _createMarineResponseFieldTags = new uint[] { 10 };
+    public static CreateMarineResponse DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override CreateMarineResponse DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override CreateMarineResponse ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<CreateMarineResponse, CreateMarineResponse.Builder> InternalFieldAccessors {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarineResponse__FieldAccessorTable; }
+    }
+    
+    public const int MarineFieldNumber = 1;
+    private bool hasMarine;
+    private global::CodeBattle.Marine marine_;
+    public bool HasMarine {
+      get { return hasMarine; }
+    }
+    public global::CodeBattle.Marine Marine {
+      get { return marine_ ?? global::CodeBattle.Marine.DefaultInstance; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasMarine) return false;
+        if (!Marine.IsInitialized) return false;
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _createMarineResponseFieldNames;
+      if (hasMarine) {
+        output.WriteMessage(1, field_names[0], Marine);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasMarine) {
+          size += pb::CodedOutputStream.ComputeMessageSize(1, Marine);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static CreateMarineResponse ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static CreateMarineResponse ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static CreateMarineResponse ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private CreateMarineResponse MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(CreateMarineResponse prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<CreateMarineResponse, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(CreateMarineResponse cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private CreateMarineResponse result;
+      
+      private CreateMarineResponse PrepareBuilder() {
+        if (resultIsReadOnly) {
+          CreateMarineResponse original = result;
+          result = new CreateMarineResponse();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override CreateMarineResponse MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::CodeBattle.Api.CreateMarineResponse.Descriptor; }
+      }
+      
+      public override CreateMarineResponse DefaultInstanceForType {
+        get { return global::CodeBattle.Api.CreateMarineResponse.DefaultInstance; }
+      }
+      
+      public override CreateMarineResponse BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is CreateMarineResponse) {
+          return MergeFrom((CreateMarineResponse) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(CreateMarineResponse other) {
+        if (other == global::CodeBattle.Api.CreateMarineResponse.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasMarine) {
+          MergeMarine(other.Marine);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_createMarineResponseFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _createMarineResponseFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 10: {
+              global::CodeBattle.Marine.Builder subBuilder = global::CodeBattle.Marine.CreateBuilder();
+              if (result.hasMarine) {
+                subBuilder.MergeFrom(Marine);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              Marine = subBuilder.BuildPartial();
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasMarine {
+       get { return result.hasMarine; }
+      }
+      public global::CodeBattle.Marine Marine {
+        get { return result.Marine; }
+        set { SetMarine(value); }
+      }
+      public Builder SetMarine(global::CodeBattle.Marine value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasMarine = true;
+        result.marine_ = value;
+        return this;
+      }
+      public Builder SetMarine(global::CodeBattle.Marine.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasMarine = true;
+        result.marine_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeMarine(global::CodeBattle.Marine value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasMarine &&
+            result.marine_ != global::CodeBattle.Marine.DefaultInstance) {
+            result.marine_ = global::CodeBattle.Marine.CreateBuilder(result.marine_).MergeFrom(value).BuildPartial();
+        } else {
+          result.marine_ = value;
+        }
+        result.hasMarine = true;
+        return this;
+      }
+      public Builder ClearMarine() {
+        PrepareBuilder();
+        result.hasMarine = false;
+        result.marine_ = null;
+        return this;
+      }
+    }
+    static CreateMarineResponse() {
+      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
+    }
+  }
+  
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+  public sealed partial class MarineOperate : pb::GeneratedMessage<MarineOperate, MarineOperate.Builder> {
+    private MarineOperate() { }
+    private static readonly MarineOperate defaultInstance = new MarineOperate().MakeReadOnly();
+    private static readonly string[] _marineOperateFieldNames = new string[] { "id", "status", "targetPostion" };
+    private static readonly uint[] _marineOperateFieldTags = new uint[] { 8, 16, 26 };
+    public static MarineOperate DefaultInstance {
+      get { return defaultInstance; }
+    }
+    
+    public override MarineOperate DefaultInstanceForType {
+      get { return DefaultInstance; }
+    }
+    
+    protected override MarineOperate ThisMessage {
+      get { return this; }
+    }
+    
+    public static pbd::MessageDescriptor Descriptor {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_MarineOperate__Descriptor; }
+    }
+    
+    protected override pb::FieldAccess.FieldAccessorTable<MarineOperate, MarineOperate.Builder> InternalFieldAccessors {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_MarineOperate__FieldAccessorTable; }
+    }
+    
+    public const int IdFieldNumber = 1;
+    private bool hasId;
+    private int id_;
+    public bool HasId {
+      get { return hasId; }
+    }
+    public int Id {
+      get { return id_; }
+    }
+    
+    public const int StatusFieldNumber = 2;
+    private bool hasStatus;
+    private global::CodeBattle.Status status_ = global::CodeBattle.Status.Idle;
+    public bool HasStatus {
+      get { return hasStatus; }
+    }
+    public global::CodeBattle.Status Status {
+      get { return status_; }
+    }
+    
+    public const int TargetPostionFieldNumber = 3;
+    private bool hasTargetPostion;
+    private global::CodeBattle.Vector2 targetPostion_;
+    public bool HasTargetPostion {
+      get { return hasTargetPostion; }
+    }
+    public global::CodeBattle.Vector2 TargetPostion {
+      get { return targetPostion_ ?? global::CodeBattle.Vector2.DefaultInstance; }
+    }
+    
+    public override bool IsInitialized {
+      get {
+        if (!hasId) return false;
+        if (!hasStatus) return false;
+        if (HasTargetPostion) {
+          if (!TargetPostion.IsInitialized) return false;
+        }
+        return true;
+      }
+    }
+    
+    public override void WriteTo(pb::ICodedOutputStream output) {
+      int size = SerializedSize;
+      string[] field_names = _marineOperateFieldNames;
+      if (hasId) {
+        output.WriteInt32(1, field_names[0], Id);
+      }
+      if (hasStatus) {
+        output.WriteEnum(2, field_names[1], (int) Status, Status);
+      }
+      if (hasTargetPostion) {
+        output.WriteMessage(3, field_names[2], TargetPostion);
+      }
+      UnknownFields.WriteTo(output);
+    }
+    
+    private int memoizedSerializedSize = -1;
+    public override int SerializedSize {
+      get {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+        
+        size = 0;
+        if (hasId) {
+          size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
+        }
+        if (hasStatus) {
+          size += pb::CodedOutputStream.ComputeEnumSize(2, (int) Status);
+        }
+        if (hasTargetPostion) {
+          size += pb::CodedOutputStream.ComputeMessageSize(3, TargetPostion);
+        }
+        size += UnknownFields.SerializedSize;
+        memoizedSerializedSize = size;
+        return size;
+      }
+    }
+    
+    public static MarineOperate ParseFrom(pb::ByteString data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(byte[] data) {
+      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(global::System.IO.Stream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    public static MarineOperate ParseDelimitedFrom(global::System.IO.Stream input) {
+      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+    }
+    public static MarineOperate ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(pb::ICodedInputStream input) {
+      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
+    }
+    public static MarineOperate ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
+    }
+    private MarineOperate MakeReadOnly() {
+      return this;
+    }
+    
+    public static Builder CreateBuilder() { return new Builder(); }
+    public override Builder ToBuilder() { return CreateBuilder(this); }
+    public override Builder CreateBuilderForType() { return new Builder(); }
+    public static Builder CreateBuilder(MarineOperate prototype) {
+      return new Builder(prototype);
+    }
+    
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed partial class Builder : pb::GeneratedBuilder<MarineOperate, Builder> {
+      protected override Builder ThisBuilder {
+        get { return this; }
+      }
+      public Builder() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+      }
+      internal Builder(MarineOperate cloneFrom) {
+        result = cloneFrom;
+        resultIsReadOnly = true;
+      }
+      
+      private bool resultIsReadOnly;
+      private MarineOperate result;
+      
+      private MarineOperate PrepareBuilder() {
+        if (resultIsReadOnly) {
+          MarineOperate original = result;
+          result = new MarineOperate();
+          resultIsReadOnly = false;
+          MergeFrom(original);
+        }
+        return result;
+      }
+      
+      public override bool IsInitialized {
+        get { return result.IsInitialized; }
+      }
+      
+      protected override MarineOperate MessageBeingBuilt {
+        get { return PrepareBuilder(); }
+      }
+      
+      public override Builder Clear() {
+        result = DefaultInstance;
+        resultIsReadOnly = true;
+        return this;
+      }
+      
+      public override Builder Clone() {
+        if (resultIsReadOnly) {
+          return new Builder(result);
+        } else {
+          return new Builder().MergeFrom(result);
+        }
+      }
+      
+      public override pbd::MessageDescriptor DescriptorForType {
+        get { return global::CodeBattle.Api.MarineOperate.Descriptor; }
+      }
+      
+      public override MarineOperate DefaultInstanceForType {
+        get { return global::CodeBattle.Api.MarineOperate.DefaultInstance; }
+      }
+      
+      public override MarineOperate BuildPartial() {
+        if (resultIsReadOnly) {
+          return result;
+        }
+        resultIsReadOnly = true;
+        return result.MakeReadOnly();
+      }
+      
+      public override Builder MergeFrom(pb::IMessage other) {
+        if (other is MarineOperate) {
+          return MergeFrom((MarineOperate) other);
+        } else {
+          base.MergeFrom(other);
+          return this;
+        }
+      }
+      
+      public override Builder MergeFrom(MarineOperate other) {
+        if (other == global::CodeBattle.Api.MarineOperate.DefaultInstance) return this;
+        PrepareBuilder();
+        if (other.HasId) {
+          Id = other.Id;
+        }
+        if (other.HasStatus) {
+          Status = other.Status;
+        }
+        if (other.HasTargetPostion) {
+          MergeTargetPostion(other.TargetPostion);
+        }
+        this.MergeUnknownFields(other.UnknownFields);
+        return this;
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input) {
+        return MergeFrom(input, pb::ExtensionRegistry.Empty);
+      }
+      
+      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+        PrepareBuilder();
+        pb::UnknownFieldSet.Builder unknownFields = null;
+        uint tag;
+        string field_name;
+        while (input.ReadTag(out tag, out field_name)) {
+          if(tag == 0 && field_name != null) {
+            int field_ordinal = global::System.Array.BinarySearch(_marineOperateFieldNames, field_name, global::System.StringComparer.Ordinal);
+            if(field_ordinal >= 0)
+              tag = _marineOperateFieldTags[field_ordinal];
+            else {
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              continue;
+            }
+          }
+          switch (tag) {
+            case 0: {
+              throw pb::InvalidProtocolBufferException.InvalidTag();
+            }
+            default: {
+              if (pb::WireFormat.IsEndGroupTag(tag)) {
+                if (unknownFields != null) {
+                  this.UnknownFields = unknownFields.Build();
+                }
+                return this;
+              }
+              if (unknownFields == null) {
+                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+              }
+              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
+              break;
+            }
+            case 8: {
+              result.hasId = input.ReadInt32(ref result.id_);
+              break;
+            }
+            case 16: {
+              object unknown;
+              if(input.ReadEnum(ref result.status_, out unknown)) {
+                result.hasStatus = true;
+              } else if(unknown is int) {
+                if (unknownFields == null) {
+                  unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
+                }
+                unknownFields.MergeVarintField(2, (ulong)(int)unknown);
+              }
+              break;
+            }
+            case 26: {
+              global::CodeBattle.Vector2.Builder subBuilder = global::CodeBattle.Vector2.CreateBuilder();
+              if (result.hasTargetPostion) {
+                subBuilder.MergeFrom(TargetPostion);
+              }
+              input.ReadMessage(subBuilder, extensionRegistry);
+              TargetPostion = subBuilder.BuildPartial();
+              break;
+            }
+          }
+        }
+        
+        if (unknownFields != null) {
+          this.UnknownFields = unknownFields.Build();
+        }
+        return this;
+      }
+      
+      
+      public bool HasId {
+        get { return result.hasId; }
+      }
+      public int Id {
+        get { return result.Id; }
+        set { SetId(value); }
+      }
+      public Builder SetId(int value) {
+        PrepareBuilder();
+        result.hasId = true;
+        result.id_ = value;
+        return this;
+      }
+      public Builder ClearId() {
+        PrepareBuilder();
+        result.hasId = false;
+        result.id_ = 0;
+        return this;
+      }
+      
+      public bool HasStatus {
+       get { return result.hasStatus; }
+      }
+      public global::CodeBattle.Status Status {
+        get { return result.Status; }
+        set { SetStatus(value); }
+      }
+      public Builder SetStatus(global::CodeBattle.Status value) {
+        PrepareBuilder();
+        result.hasStatus = true;
+        result.status_ = value;
+        return this;
+      }
+      public Builder ClearStatus() {
+        PrepareBuilder();
+        result.hasStatus = false;
+        result.status_ = global::CodeBattle.Status.Idle;
+        return this;
+      }
+      
+      public bool HasTargetPostion {
+       get { return result.hasTargetPostion; }
+      }
+      public global::CodeBattle.Vector2 TargetPostion {
+        get { return result.TargetPostion; }
+        set { SetTargetPostion(value); }
+      }
+      public Builder SetTargetPostion(global::CodeBattle.Vector2 value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        result.hasTargetPostion = true;
+        result.targetPostion_ = value;
+        return this;
+      }
+      public Builder SetTargetPostion(global::CodeBattle.Vector2.Builder builderForValue) {
+        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+        PrepareBuilder();
+        result.hasTargetPostion = true;
+        result.targetPostion_ = builderForValue.Build();
+        return this;
+      }
+      public Builder MergeTargetPostion(global::CodeBattle.Vector2 value) {
+        pb::ThrowHelper.ThrowIfNull(value, "value");
+        PrepareBuilder();
+        if (result.hasTargetPostion &&
+            result.targetPostion_ != global::CodeBattle.Vector2.DefaultInstance) {
+            result.targetPostion_ = global::CodeBattle.Vector2.CreateBuilder(result.targetPostion_).MergeFrom(value).BuildPartial();
+        } else {
+          result.targetPostion_ = value;
+        }
+        result.hasTargetPostion = true;
+        return this;
+      }
+      public Builder ClearTargetPostion() {
+        PrepareBuilder();
+        result.hasTargetPostion = false;
+        result.targetPostion_ = null;
+        return this;
+      }
+    }
+    static MarineOperate() {
       object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
     }
   }
@@ -1115,7 +2956,6 @@ namespace CodeBattle.Api {
     public override bool IsInitialized {
       get {
         if (!hasRet) return false;
-        if (!hasCmd) return false;
         if (HasJrmResponse) {
           if (!JrmResponse.IsInitialized) return false;
         }
@@ -1885,53 +3725,67 @@ namespace CodeBattle.Api {
   }
   
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class JoinRoom : pb::GeneratedMessage<JoinRoom, JoinRoom.Builder> {
-    private JoinRoom() { }
-    private static readonly JoinRoom defaultInstance = new JoinRoom().MakeReadOnly();
-    private static readonly string[] _joinRoomFieldNames = new string[] { "roomid" };
-    private static readonly uint[] _joinRoomFieldTags = new uint[] { 8 };
-    public static JoinRoom DefaultInstance {
+  public sealed partial class EndBattle : pb::GeneratedMessage<EndBattle, EndBattle.Builder> {
+    private EndBattle() { }
+    private static readonly EndBattle defaultInstance = new EndBattle().MakeReadOnly();
+    private static readonly string[] _endBattleFieldNames = new string[] { "reason", "win" };
+    private static readonly uint[] _endBattleFieldTags = new uint[] { 10, 16 };
+    public static EndBattle DefaultInstance {
       get { return defaultInstance; }
     }
     
-    public override JoinRoom DefaultInstanceForType {
+    public override EndBattle DefaultInstanceForType {
       get { return DefaultInstance; }
     }
     
-    protected override JoinRoom ThisMessage {
+    protected override EndBattle ThisMessage {
       get { return this; }
     }
     
     public static pbd::MessageDescriptor Descriptor {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoom__Descriptor; }
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_EndBattle__Descriptor; }
     }
     
-    protected override pb::FieldAccess.FieldAccessorTable<JoinRoom, JoinRoom.Builder> InternalFieldAccessors {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoom__FieldAccessorTable; }
+    protected override pb::FieldAccess.FieldAccessorTable<EndBattle, EndBattle.Builder> InternalFieldAccessors {
+      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_EndBattle__FieldAccessorTable; }
     }
     
-    public const int RoomidFieldNumber = 1;
-    private bool hasRoomid;
-    private int roomid_;
-    public bool HasRoomid {
-      get { return hasRoomid; }
+    public const int ReasonFieldNumber = 1;
+    private bool hasReason;
+    private string reason_ = "";
+    public bool HasReason {
+      get { return hasReason; }
     }
-    public int Roomid {
-      get { return roomid_; }
+    public string Reason {
+      get { return reason_; }
+    }
+    
+    public const int WinFieldNumber = 2;
+    private bool hasWin;
+    private bool win_;
+    public bool HasWin {
+      get { return hasWin; }
+    }
+    public bool Win {
+      get { return win_; }
     }
     
     public override bool IsInitialized {
       get {
-        if (!hasRoomid) return false;
+        if (!hasReason) return false;
+        if (!hasWin) return false;
         return true;
       }
     }
     
     public override void WriteTo(pb::ICodedOutputStream output) {
       int size = SerializedSize;
-      string[] field_names = _joinRoomFieldNames;
-      if (hasRoomid) {
-        output.WriteInt32(1, field_names[0], Roomid);
+      string[] field_names = _endBattleFieldNames;
+      if (hasReason) {
+        output.WriteString(1, field_names[0], Reason);
+      }
+      if (hasWin) {
+        output.WriteBool(2, field_names[1], Win);
       }
       UnknownFields.WriteTo(output);
     }
@@ -1943,8 +3797,11 @@ namespace CodeBattle.Api {
         if (size != -1) return size;
         
         size = 0;
-        if (hasRoomid) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Roomid);
+        if (hasReason) {
+          size += pb::CodedOutputStream.ComputeStringSize(1, Reason);
+        }
+        if (hasWin) {
+          size += pb::CodedOutputStream.ComputeBoolSize(2, Win);
         }
         size += UnknownFields.SerializedSize;
         memoizedSerializedSize = size;
@@ -1952,49 +3809,49 @@ namespace CodeBattle.Api {
       }
     }
     
-    public static JoinRoom ParseFrom(pb::ByteString data) {
+    public static EndBattle ParseFrom(pb::ByteString data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
-    public static JoinRoom ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
+    public static EndBattle ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
-    public static JoinRoom ParseFrom(byte[] data) {
+    public static EndBattle ParseFrom(byte[] data) {
       return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
     }
-    public static JoinRoom ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
+    public static EndBattle ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
     }
-    public static JoinRoom ParseFrom(global::System.IO.Stream input) {
+    public static EndBattle ParseFrom(global::System.IO.Stream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
-    public static JoinRoom ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static EndBattle ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    public static JoinRoom ParseDelimitedFrom(global::System.IO.Stream input) {
+    public static EndBattle ParseDelimitedFrom(global::System.IO.Stream input) {
       return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
     }
-    public static JoinRoom ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
+    public static EndBattle ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
       return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
     }
-    public static JoinRoom ParseFrom(pb::ICodedInputStream input) {
+    public static EndBattle ParseFrom(pb::ICodedInputStream input) {
       return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
     }
-    public static JoinRoom ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
+    public static EndBattle ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
       return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
     }
-    private JoinRoom MakeReadOnly() {
+    private EndBattle MakeReadOnly() {
       return this;
     }
     
     public static Builder CreateBuilder() { return new Builder(); }
     public override Builder ToBuilder() { return CreateBuilder(this); }
     public override Builder CreateBuilderForType() { return new Builder(); }
-    public static Builder CreateBuilder(JoinRoom prototype) {
+    public static Builder CreateBuilder(EndBattle prototype) {
       return new Builder(prototype);
     }
     
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<JoinRoom, Builder> {
+    public sealed partial class Builder : pb::GeneratedBuilder<EndBattle, Builder> {
       protected override Builder ThisBuilder {
         get { return this; }
       }
@@ -2002,18 +3859,18 @@ namespace CodeBattle.Api {
         result = DefaultInstance;
         resultIsReadOnly = true;
       }
-      internal Builder(JoinRoom cloneFrom) {
+      internal Builder(EndBattle cloneFrom) {
         result = cloneFrom;
         resultIsReadOnly = true;
       }
       
       private bool resultIsReadOnly;
-      private JoinRoom result;
+      private EndBattle result;
       
-      private JoinRoom PrepareBuilder() {
+      private EndBattle PrepareBuilder() {
         if (resultIsReadOnly) {
-          JoinRoom original = result;
-          result = new JoinRoom();
+          EndBattle original = result;
+          result = new EndBattle();
           resultIsReadOnly = false;
           MergeFrom(original);
         }
@@ -2024,7 +3881,7 @@ namespace CodeBattle.Api {
         get { return result.IsInitialized; }
       }
       
-      protected override JoinRoom MessageBeingBuilt {
+      protected override EndBattle MessageBeingBuilt {
         get { return PrepareBuilder(); }
       }
       
@@ -2043,14 +3900,14 @@ namespace CodeBattle.Api {
       }
       
       public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CodeBattle.Api.JoinRoom.Descriptor; }
+        get { return global::CodeBattle.Api.EndBattle.Descriptor; }
       }
       
-      public override JoinRoom DefaultInstanceForType {
-        get { return global::CodeBattle.Api.JoinRoom.DefaultInstance; }
+      public override EndBattle DefaultInstanceForType {
+        get { return global::CodeBattle.Api.EndBattle.DefaultInstance; }
       }
       
-      public override JoinRoom BuildPartial() {
+      public override EndBattle BuildPartial() {
         if (resultIsReadOnly) {
           return result;
         }
@@ -2059,19 +3916,22 @@ namespace CodeBattle.Api {
       }
       
       public override Builder MergeFrom(pb::IMessage other) {
-        if (other is JoinRoom) {
-          return MergeFrom((JoinRoom) other);
+        if (other is EndBattle) {
+          return MergeFrom((EndBattle) other);
         } else {
           base.MergeFrom(other);
           return this;
         }
       }
       
-      public override Builder MergeFrom(JoinRoom other) {
-        if (other == global::CodeBattle.Api.JoinRoom.DefaultInstance) return this;
+      public override Builder MergeFrom(EndBattle other) {
+        if (other == global::CodeBattle.Api.EndBattle.DefaultInstance) return this;
         PrepareBuilder();
-        if (other.HasRoomid) {
-          Roomid = other.Roomid;
+        if (other.HasReason) {
+          Reason = other.Reason;
+        }
+        if (other.HasWin) {
+          Win = other.Win;
         }
         this.MergeUnknownFields(other.UnknownFields);
         return this;
@@ -2088,1430 +3948,9 @@ namespace CodeBattle.Api {
         string field_name;
         while (input.ReadTag(out tag, out field_name)) {
           if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_joinRoomFieldNames, field_name, global::System.StringComparer.Ordinal);
+            int field_ordinal = global::System.Array.BinarySearch(_endBattleFieldNames, field_name, global::System.StringComparer.Ordinal);
             if(field_ordinal >= 0)
-              tag = _joinRoomFieldTags[field_ordinal];
-            else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
-                return this;
-              }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              break;
-            }
-            case 8: {
-              result.hasRoomid = input.ReadInt32(ref result.roomid_);
-              break;
-            }
-          }
-        }
-        
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
-        return this;
-      }
-      
-      
-      public bool HasRoomid {
-        get { return result.hasRoomid; }
-      }
-      public int Roomid {
-        get { return result.Roomid; }
-        set { SetRoomid(value); }
-      }
-      public Builder SetRoomid(int value) {
-        PrepareBuilder();
-        result.hasRoomid = true;
-        result.roomid_ = value;
-        return this;
-      }
-      public Builder ClearRoomid() {
-        PrepareBuilder();
-        result.hasRoomid = false;
-        result.roomid_ = 0;
-        return this;
-      }
-    }
-    static JoinRoom() {
-      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
-    }
-  }
-  
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class CreateMarine : pb::GeneratedMessage<CreateMarine, CreateMarine.Builder> {
-    private CreateMarine() { }
-    private static readonly CreateMarine defaultInstance = new CreateMarine().MakeReadOnly();
-    private static readonly string[] _createMarineFieldNames = new string[] { "position", "roomid" };
-    private static readonly uint[] _createMarineFieldTags = new uint[] { 18, 8 };
-    public static CreateMarine DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    public override CreateMarine DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override CreateMarine ThisMessage {
-      get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarine__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<CreateMarine, CreateMarine.Builder> InternalFieldAccessors {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarine__FieldAccessorTable; }
-    }
-    
-    public const int RoomidFieldNumber = 1;
-    private bool hasRoomid;
-    private int roomid_;
-    public bool HasRoomid {
-      get { return hasRoomid; }
-    }
-    public int Roomid {
-      get { return roomid_; }
-    }
-    
-    public const int PositionFieldNumber = 2;
-    private bool hasPosition;
-    private global::CodeBattle.Vector2 position_;
-    public bool HasPosition {
-      get { return hasPosition; }
-    }
-    public global::CodeBattle.Vector2 Position {
-      get { return position_ ?? global::CodeBattle.Vector2.DefaultInstance; }
-    }
-    
-    public override bool IsInitialized {
-      get {
-        if (!hasRoomid) return false;
-        if (!hasPosition) return false;
-        if (!Position.IsInitialized) return false;
-        return true;
-      }
-    }
-    
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _createMarineFieldNames;
-      if (hasRoomid) {
-        output.WriteInt32(1, field_names[1], Roomid);
-      }
-      if (hasPosition) {
-        output.WriteMessage(2, field_names[0], Position);
-      }
-      UnknownFields.WriteTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        if (hasRoomid) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Roomid);
-        }
-        if (hasPosition) {
-          size += pb::CodedOutputStream.ComputeMessageSize(2, Position);
-        }
-        size += UnknownFields.SerializedSize;
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    public static CreateMarine ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    public static CreateMarine ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    public static CreateMarine ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static CreateMarine ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private CreateMarine MakeReadOnly() {
-      return this;
-    }
-    
-    public static Builder CreateBuilder() { return new Builder(); }
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    public static Builder CreateBuilder(CreateMarine prototype) {
-      return new Builder(prototype);
-    }
-    
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<CreateMarine, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(CreateMarine cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private CreateMarine result;
-      
-      private CreateMarine PrepareBuilder() {
-        if (resultIsReadOnly) {
-          CreateMarine original = result;
-          result = new CreateMarine();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override CreateMarine MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CodeBattle.Api.CreateMarine.Descriptor; }
-      }
-      
-      public override CreateMarine DefaultInstanceForType {
-        get { return global::CodeBattle.Api.CreateMarine.DefaultInstance; }
-      }
-      
-      public override CreateMarine BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessage other) {
-        if (other is CreateMarine) {
-          return MergeFrom((CreateMarine) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(CreateMarine other) {
-        if (other == global::CodeBattle.Api.CreateMarine.DefaultInstance) return this;
-        PrepareBuilder();
-        if (other.HasRoomid) {
-          Roomid = other.Roomid;
-        }
-        if (other.HasPosition) {
-          MergePosition(other.Position);
-        }
-        this.MergeUnknownFields(other.UnknownFields);
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_createMarineFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _createMarineFieldTags[field_ordinal];
-            else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
-                return this;
-              }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              break;
-            }
-            case 8: {
-              result.hasRoomid = input.ReadInt32(ref result.roomid_);
-              break;
-            }
-            case 18: {
-              global::CodeBattle.Vector2.Builder subBuilder = global::CodeBattle.Vector2.CreateBuilder();
-              if (result.hasPosition) {
-                subBuilder.MergeFrom(Position);
-              }
-              input.ReadMessage(subBuilder, extensionRegistry);
-              Position = subBuilder.BuildPartial();
-              break;
-            }
-          }
-        }
-        
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
-        return this;
-      }
-      
-      
-      public bool HasRoomid {
-        get { return result.hasRoomid; }
-      }
-      public int Roomid {
-        get { return result.Roomid; }
-        set { SetRoomid(value); }
-      }
-      public Builder SetRoomid(int value) {
-        PrepareBuilder();
-        result.hasRoomid = true;
-        result.roomid_ = value;
-        return this;
-      }
-      public Builder ClearRoomid() {
-        PrepareBuilder();
-        result.hasRoomid = false;
-        result.roomid_ = 0;
-        return this;
-      }
-      
-      public bool HasPosition {
-       get { return result.hasPosition; }
-      }
-      public global::CodeBattle.Vector2 Position {
-        get { return result.Position; }
-        set { SetPosition(value); }
-      }
-      public Builder SetPosition(global::CodeBattle.Vector2 value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasPosition = true;
-        result.position_ = value;
-        return this;
-      }
-      public Builder SetPosition(global::CodeBattle.Vector2.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
-        PrepareBuilder();
-        result.hasPosition = true;
-        result.position_ = builderForValue.Build();
-        return this;
-      }
-      public Builder MergePosition(global::CodeBattle.Vector2 value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        if (result.hasPosition &&
-            result.position_ != global::CodeBattle.Vector2.DefaultInstance) {
-            result.position_ = global::CodeBattle.Vector2.CreateBuilder(result.position_).MergeFrom(value).BuildPartial();
-        } else {
-          result.position_ = value;
-        }
-        result.hasPosition = true;
-        return this;
-      }
-      public Builder ClearPosition() {
-        PrepareBuilder();
-        result.hasPosition = false;
-        result.position_ = null;
-        return this;
-      }
-    }
-    static CreateMarine() {
-      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
-    }
-  }
-  
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class MarineOperate : pb::GeneratedMessage<MarineOperate, MarineOperate.Builder> {
-    private MarineOperate() { }
-    private static readonly MarineOperate defaultInstance = new MarineOperate().MakeReadOnly();
-    private static readonly string[] _marineOperateFieldNames = new string[] { "id", "status", "targetPostion" };
-    private static readonly uint[] _marineOperateFieldTags = new uint[] { 8, 16, 26 };
-    public static MarineOperate DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    public override MarineOperate DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override MarineOperate ThisMessage {
-      get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_MarineOperate__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<MarineOperate, MarineOperate.Builder> InternalFieldAccessors {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_MarineOperate__FieldAccessorTable; }
-    }
-    
-    public const int IdFieldNumber = 1;
-    private bool hasId;
-    private int id_;
-    public bool HasId {
-      get { return hasId; }
-    }
-    public int Id {
-      get { return id_; }
-    }
-    
-    public const int StatusFieldNumber = 2;
-    private bool hasStatus;
-    private global::CodeBattle.Status status_ = global::CodeBattle.Status.Idle;
-    public bool HasStatus {
-      get { return hasStatus; }
-    }
-    public global::CodeBattle.Status Status {
-      get { return status_; }
-    }
-    
-    public const int TargetPostionFieldNumber = 3;
-    private bool hasTargetPostion;
-    private global::CodeBattle.Vector2 targetPostion_;
-    public bool HasTargetPostion {
-      get { return hasTargetPostion; }
-    }
-    public global::CodeBattle.Vector2 TargetPostion {
-      get { return targetPostion_ ?? global::CodeBattle.Vector2.DefaultInstance; }
-    }
-    
-    public override bool IsInitialized {
-      get {
-        if (!hasId) return false;
-        if (!hasStatus) return false;
-        if (HasTargetPostion) {
-          if (!TargetPostion.IsInitialized) return false;
-        }
-        return true;
-      }
-    }
-    
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _marineOperateFieldNames;
-      if (hasId) {
-        output.WriteInt32(1, field_names[0], Id);
-      }
-      if (hasStatus) {
-        output.WriteEnum(2, field_names[1], (int) Status, Status);
-      }
-      if (hasTargetPostion) {
-        output.WriteMessage(3, field_names[2], TargetPostion);
-      }
-      UnknownFields.WriteTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        if (hasId) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
-        }
-        if (hasStatus) {
-          size += pb::CodedOutputStream.ComputeEnumSize(2, (int) Status);
-        }
-        if (hasTargetPostion) {
-          size += pb::CodedOutputStream.ComputeMessageSize(3, TargetPostion);
-        }
-        size += UnknownFields.SerializedSize;
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    public static MarineOperate ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    public static MarineOperate ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    public static MarineOperate ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static MarineOperate ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private MarineOperate MakeReadOnly() {
-      return this;
-    }
-    
-    public static Builder CreateBuilder() { return new Builder(); }
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    public static Builder CreateBuilder(MarineOperate prototype) {
-      return new Builder(prototype);
-    }
-    
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<MarineOperate, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(MarineOperate cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private MarineOperate result;
-      
-      private MarineOperate PrepareBuilder() {
-        if (resultIsReadOnly) {
-          MarineOperate original = result;
-          result = new MarineOperate();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override MarineOperate MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CodeBattle.Api.MarineOperate.Descriptor; }
-      }
-      
-      public override MarineOperate DefaultInstanceForType {
-        get { return global::CodeBattle.Api.MarineOperate.DefaultInstance; }
-      }
-      
-      public override MarineOperate BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessage other) {
-        if (other is MarineOperate) {
-          return MergeFrom((MarineOperate) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(MarineOperate other) {
-        if (other == global::CodeBattle.Api.MarineOperate.DefaultInstance) return this;
-        PrepareBuilder();
-        if (other.HasId) {
-          Id = other.Id;
-        }
-        if (other.HasStatus) {
-          Status = other.Status;
-        }
-        if (other.HasTargetPostion) {
-          MergeTargetPostion(other.TargetPostion);
-        }
-        this.MergeUnknownFields(other.UnknownFields);
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_marineOperateFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _marineOperateFieldTags[field_ordinal];
-            else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
-                return this;
-              }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              break;
-            }
-            case 8: {
-              result.hasId = input.ReadInt32(ref result.id_);
-              break;
-            }
-            case 16: {
-              object unknown;
-              if(input.ReadEnum(ref result.status_, out unknown)) {
-                result.hasStatus = true;
-              } else if(unknown is int) {
-                if (unknownFields == null) {
-                  unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-                }
-                unknownFields.MergeVarintField(2, (ulong)(int)unknown);
-              }
-              break;
-            }
-            case 26: {
-              global::CodeBattle.Vector2.Builder subBuilder = global::CodeBattle.Vector2.CreateBuilder();
-              if (result.hasTargetPostion) {
-                subBuilder.MergeFrom(TargetPostion);
-              }
-              input.ReadMessage(subBuilder, extensionRegistry);
-              TargetPostion = subBuilder.BuildPartial();
-              break;
-            }
-          }
-        }
-        
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
-        return this;
-      }
-      
-      
-      public bool HasId {
-        get { return result.hasId; }
-      }
-      public int Id {
-        get { return result.Id; }
-        set { SetId(value); }
-      }
-      public Builder SetId(int value) {
-        PrepareBuilder();
-        result.hasId = true;
-        result.id_ = value;
-        return this;
-      }
-      public Builder ClearId() {
-        PrepareBuilder();
-        result.hasId = false;
-        result.id_ = 0;
-        return this;
-      }
-      
-      public bool HasStatus {
-       get { return result.hasStatus; }
-      }
-      public global::CodeBattle.Status Status {
-        get { return result.Status; }
-        set { SetStatus(value); }
-      }
-      public Builder SetStatus(global::CodeBattle.Status value) {
-        PrepareBuilder();
-        result.hasStatus = true;
-        result.status_ = value;
-        return this;
-      }
-      public Builder ClearStatus() {
-        PrepareBuilder();
-        result.hasStatus = false;
-        result.status_ = global::CodeBattle.Status.Idle;
-        return this;
-      }
-      
-      public bool HasTargetPostion {
-       get { return result.hasTargetPostion; }
-      }
-      public global::CodeBattle.Vector2 TargetPostion {
-        get { return result.TargetPostion; }
-        set { SetTargetPostion(value); }
-      }
-      public Builder SetTargetPostion(global::CodeBattle.Vector2 value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasTargetPostion = true;
-        result.targetPostion_ = value;
-        return this;
-      }
-      public Builder SetTargetPostion(global::CodeBattle.Vector2.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
-        PrepareBuilder();
-        result.hasTargetPostion = true;
-        result.targetPostion_ = builderForValue.Build();
-        return this;
-      }
-      public Builder MergeTargetPostion(global::CodeBattle.Vector2 value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        if (result.hasTargetPostion &&
-            result.targetPostion_ != global::CodeBattle.Vector2.DefaultInstance) {
-            result.targetPostion_ = global::CodeBattle.Vector2.CreateBuilder(result.targetPostion_).MergeFrom(value).BuildPartial();
-        } else {
-          result.targetPostion_ = value;
-        }
-        result.hasTargetPostion = true;
-        return this;
-      }
-      public Builder ClearTargetPostion() {
-        PrepareBuilder();
-        result.hasTargetPostion = false;
-        result.targetPostion_ = null;
-        return this;
-      }
-    }
-    static MarineOperate() {
-      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
-    }
-  }
-  
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class JoinRoomResponse : pb::GeneratedMessage<JoinRoomResponse, JoinRoomResponse.Builder> {
-    private JoinRoomResponse() { }
-    private static readonly JoinRoomResponse defaultInstance = new JoinRoomResponse().MakeReadOnly();
-    private static readonly string[] _joinRoomResponseFieldNames = new string[] { "id", "marines", "size" };
-    private static readonly uint[] _joinRoomResponseFieldTags = new uint[] { 8, 26, 18 };
-    public static JoinRoomResponse DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    public override JoinRoomResponse DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override JoinRoomResponse ThisMessage {
-      get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoomResponse__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<JoinRoomResponse, JoinRoomResponse.Builder> InternalFieldAccessors {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_JoinRoomResponse__FieldAccessorTable; }
-    }
-    
-    public const int IdFieldNumber = 1;
-    private bool hasId;
-    private int id_;
-    public bool HasId {
-      get { return hasId; }
-    }
-    public int Id {
-      get { return id_; }
-    }
-    
-    public const int SizeFieldNumber = 2;
-    private bool hasSize;
-    private global::CodeBattle.Vector2Int size_;
-    public bool HasSize {
-      get { return hasSize; }
-    }
-    public global::CodeBattle.Vector2Int Size {
-      get { return size_ ?? global::CodeBattle.Vector2Int.DefaultInstance; }
-    }
-    
-    public const int MarinesFieldNumber = 3;
-    private pbc::PopsicleList<global::CodeBattle.Marine> marines_ = new pbc::PopsicleList<global::CodeBattle.Marine>();
-    public scg::IList<global::CodeBattle.Marine> MarinesList {
-      get { return marines_; }
-    }
-    public int MarinesCount {
-      get { return marines_.Count; }
-    }
-    public global::CodeBattle.Marine GetMarines(int index) {
-      return marines_[index];
-    }
-    
-    public override bool IsInitialized {
-      get {
-        if (!hasId) return false;
-        if (!hasSize) return false;
-        if (!Size.IsInitialized) return false;
-        foreach (global::CodeBattle.Marine element in MarinesList) {
-          if (!element.IsInitialized) return false;
-        }
-        return true;
-      }
-    }
-    
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _joinRoomResponseFieldNames;
-      if (hasId) {
-        output.WriteInt32(1, field_names[0], Id);
-      }
-      if (hasSize) {
-        output.WriteMessage(2, field_names[2], Size);
-      }
-      if (marines_.Count > 0) {
-        output.WriteMessageArray(3, field_names[1], marines_);
-      }
-      UnknownFields.WriteTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        if (hasId) {
-          size += pb::CodedOutputStream.ComputeInt32Size(1, Id);
-        }
-        if (hasSize) {
-          size += pb::CodedOutputStream.ComputeMessageSize(2, Size);
-        }
-        foreach (global::CodeBattle.Marine element in MarinesList) {
-          size += pb::CodedOutputStream.ComputeMessageSize(3, element);
-        }
-        size += UnknownFields.SerializedSize;
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    public static JoinRoomResponse ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    public static JoinRoomResponse ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static JoinRoomResponse ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private JoinRoomResponse MakeReadOnly() {
-      marines_.MakeReadOnly();
-      return this;
-    }
-    
-    public static Builder CreateBuilder() { return new Builder(); }
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    public static Builder CreateBuilder(JoinRoomResponse prototype) {
-      return new Builder(prototype);
-    }
-    
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<JoinRoomResponse, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(JoinRoomResponse cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private JoinRoomResponse result;
-      
-      private JoinRoomResponse PrepareBuilder() {
-        if (resultIsReadOnly) {
-          JoinRoomResponse original = result;
-          result = new JoinRoomResponse();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override JoinRoomResponse MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CodeBattle.Api.JoinRoomResponse.Descriptor; }
-      }
-      
-      public override JoinRoomResponse DefaultInstanceForType {
-        get { return global::CodeBattle.Api.JoinRoomResponse.DefaultInstance; }
-      }
-      
-      public override JoinRoomResponse BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessage other) {
-        if (other is JoinRoomResponse) {
-          return MergeFrom((JoinRoomResponse) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(JoinRoomResponse other) {
-        if (other == global::CodeBattle.Api.JoinRoomResponse.DefaultInstance) return this;
-        PrepareBuilder();
-        if (other.HasId) {
-          Id = other.Id;
-        }
-        if (other.HasSize) {
-          MergeSize(other.Size);
-        }
-        if (other.marines_.Count != 0) {
-          result.marines_.Add(other.marines_);
-        }
-        this.MergeUnknownFields(other.UnknownFields);
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_joinRoomResponseFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _joinRoomResponseFieldTags[field_ordinal];
-            else {
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              continue;
-            }
-          }
-          switch (tag) {
-            case 0: {
-              throw pb::InvalidProtocolBufferException.InvalidTag();
-            }
-            default: {
-              if (pb::WireFormat.IsEndGroupTag(tag)) {
-                if (unknownFields != null) {
-                  this.UnknownFields = unknownFields.Build();
-                }
-                return this;
-              }
-              if (unknownFields == null) {
-                unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
-              }
-              ParseUnknownField(input, unknownFields, extensionRegistry, tag, field_name);
-              break;
-            }
-            case 8: {
-              result.hasId = input.ReadInt32(ref result.id_);
-              break;
-            }
-            case 18: {
-              global::CodeBattle.Vector2Int.Builder subBuilder = global::CodeBattle.Vector2Int.CreateBuilder();
-              if (result.hasSize) {
-                subBuilder.MergeFrom(Size);
-              }
-              input.ReadMessage(subBuilder, extensionRegistry);
-              Size = subBuilder.BuildPartial();
-              break;
-            }
-            case 26: {
-              input.ReadMessageArray(tag, field_name, result.marines_, global::CodeBattle.Marine.DefaultInstance, extensionRegistry);
-              break;
-            }
-          }
-        }
-        
-        if (unknownFields != null) {
-          this.UnknownFields = unknownFields.Build();
-        }
-        return this;
-      }
-      
-      
-      public bool HasId {
-        get { return result.hasId; }
-      }
-      public int Id {
-        get { return result.Id; }
-        set { SetId(value); }
-      }
-      public Builder SetId(int value) {
-        PrepareBuilder();
-        result.hasId = true;
-        result.id_ = value;
-        return this;
-      }
-      public Builder ClearId() {
-        PrepareBuilder();
-        result.hasId = false;
-        result.id_ = 0;
-        return this;
-      }
-      
-      public bool HasSize {
-       get { return result.hasSize; }
-      }
-      public global::CodeBattle.Vector2Int Size {
-        get { return result.Size; }
-        set { SetSize(value); }
-      }
-      public Builder SetSize(global::CodeBattle.Vector2Int value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.hasSize = true;
-        result.size_ = value;
-        return this;
-      }
-      public Builder SetSize(global::CodeBattle.Vector2Int.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
-        PrepareBuilder();
-        result.hasSize = true;
-        result.size_ = builderForValue.Build();
-        return this;
-      }
-      public Builder MergeSize(global::CodeBattle.Vector2Int value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        if (result.hasSize &&
-            result.size_ != global::CodeBattle.Vector2Int.DefaultInstance) {
-            result.size_ = global::CodeBattle.Vector2Int.CreateBuilder(result.size_).MergeFrom(value).BuildPartial();
-        } else {
-          result.size_ = value;
-        }
-        result.hasSize = true;
-        return this;
-      }
-      public Builder ClearSize() {
-        PrepareBuilder();
-        result.hasSize = false;
-        result.size_ = null;
-        return this;
-      }
-      
-      public pbc::IPopsicleList<global::CodeBattle.Marine> MarinesList {
-        get { return PrepareBuilder().marines_; }
-      }
-      public int MarinesCount {
-        get { return result.MarinesCount; }
-      }
-      public global::CodeBattle.Marine GetMarines(int index) {
-        return result.GetMarines(index);
-      }
-      public Builder SetMarines(int index, global::CodeBattle.Marine value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.marines_[index] = value;
-        return this;
-      }
-      public Builder SetMarines(int index, global::CodeBattle.Marine.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
-        PrepareBuilder();
-        result.marines_[index] = builderForValue.Build();
-        return this;
-      }
-      public Builder AddMarines(global::CodeBattle.Marine value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
-        PrepareBuilder();
-        result.marines_.Add(value);
-        return this;
-      }
-      public Builder AddMarines(global::CodeBattle.Marine.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
-        PrepareBuilder();
-        result.marines_.Add(builderForValue.Build());
-        return this;
-      }
-      public Builder AddRangeMarines(scg::IEnumerable<global::CodeBattle.Marine> values) {
-        PrepareBuilder();
-        result.marines_.Add(values);
-        return this;
-      }
-      public Builder ClearMarines() {
-        PrepareBuilder();
-        result.marines_.Clear();
-        return this;
-      }
-    }
-    static JoinRoomResponse() {
-      object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
-    }
-  }
-  
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-  public sealed partial class CreateMarineResponse : pb::GeneratedMessage<CreateMarineResponse, CreateMarineResponse.Builder> {
-    private CreateMarineResponse() { }
-    private static readonly CreateMarineResponse defaultInstance = new CreateMarineResponse().MakeReadOnly();
-    private static readonly string[] _createMarineResponseFieldNames = new string[] { "marine" };
-    private static readonly uint[] _createMarineResponseFieldTags = new uint[] { 10 };
-    public static CreateMarineResponse DefaultInstance {
-      get { return defaultInstance; }
-    }
-    
-    public override CreateMarineResponse DefaultInstanceForType {
-      get { return DefaultInstance; }
-    }
-    
-    protected override CreateMarineResponse ThisMessage {
-      get { return this; }
-    }
-    
-    public static pbd::MessageDescriptor Descriptor {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarineResponse__Descriptor; }
-    }
-    
-    protected override pb::FieldAccess.FieldAccessorTable<CreateMarineResponse, CreateMarineResponse.Builder> InternalFieldAccessors {
-      get { return global::CodeBattle.Api.Api.internal__static_CodeBattle_Api_CreateMarineResponse__FieldAccessorTable; }
-    }
-    
-    public const int MarineFieldNumber = 1;
-    private bool hasMarine;
-    private global::CodeBattle.Marine marine_;
-    public bool HasMarine {
-      get { return hasMarine; }
-    }
-    public global::CodeBattle.Marine Marine {
-      get { return marine_ ?? global::CodeBattle.Marine.DefaultInstance; }
-    }
-    
-    public override bool IsInitialized {
-      get {
-        if (!hasMarine) return false;
-        if (!Marine.IsInitialized) return false;
-        return true;
-      }
-    }
-    
-    public override void WriteTo(pb::ICodedOutputStream output) {
-      int size = SerializedSize;
-      string[] field_names = _createMarineResponseFieldNames;
-      if (hasMarine) {
-        output.WriteMessage(1, field_names[0], Marine);
-      }
-      UnknownFields.WriteTo(output);
-    }
-    
-    private int memoizedSerializedSize = -1;
-    public override int SerializedSize {
-      get {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-        
-        size = 0;
-        if (hasMarine) {
-          size += pb::CodedOutputStream.ComputeMessageSize(1, Marine);
-        }
-        size += UnknownFields.SerializedSize;
-        memoizedSerializedSize = size;
-        return size;
-      }
-    }
-    
-    public static CreateMarineResponse ParseFrom(pb::ByteString data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(pb::ByteString data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(byte[] data) {
-      return ((Builder) CreateBuilder().MergeFrom(data)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(byte[] data, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(data, extensionRegistry)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(global::System.IO.Stream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseDelimitedFrom(global::System.IO.Stream input) {
-      return CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
-    }
-    public static CreateMarineResponse ParseDelimitedFrom(global::System.IO.Stream input, pb::ExtensionRegistry extensionRegistry) {
-      return CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(pb::ICodedInputStream input) {
-      return ((Builder) CreateBuilder().MergeFrom(input)).BuildParsed();
-    }
-    public static CreateMarineResponse ParseFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-      return ((Builder) CreateBuilder().MergeFrom(input, extensionRegistry)).BuildParsed();
-    }
-    private CreateMarineResponse MakeReadOnly() {
-      return this;
-    }
-    
-    public static Builder CreateBuilder() { return new Builder(); }
-    public override Builder ToBuilder() { return CreateBuilder(this); }
-    public override Builder CreateBuilderForType() { return new Builder(); }
-    public static Builder CreateBuilder(CreateMarineResponse prototype) {
-      return new Builder(prototype);
-    }
-    
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed partial class Builder : pb::GeneratedBuilder<CreateMarineResponse, Builder> {
-      protected override Builder ThisBuilder {
-        get { return this; }
-      }
-      public Builder() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-      }
-      internal Builder(CreateMarineResponse cloneFrom) {
-        result = cloneFrom;
-        resultIsReadOnly = true;
-      }
-      
-      private bool resultIsReadOnly;
-      private CreateMarineResponse result;
-      
-      private CreateMarineResponse PrepareBuilder() {
-        if (resultIsReadOnly) {
-          CreateMarineResponse original = result;
-          result = new CreateMarineResponse();
-          resultIsReadOnly = false;
-          MergeFrom(original);
-        }
-        return result;
-      }
-      
-      public override bool IsInitialized {
-        get { return result.IsInitialized; }
-      }
-      
-      protected override CreateMarineResponse MessageBeingBuilt {
-        get { return PrepareBuilder(); }
-      }
-      
-      public override Builder Clear() {
-        result = DefaultInstance;
-        resultIsReadOnly = true;
-        return this;
-      }
-      
-      public override Builder Clone() {
-        if (resultIsReadOnly) {
-          return new Builder(result);
-        } else {
-          return new Builder().MergeFrom(result);
-        }
-      }
-      
-      public override pbd::MessageDescriptor DescriptorForType {
-        get { return global::CodeBattle.Api.CreateMarineResponse.Descriptor; }
-      }
-      
-      public override CreateMarineResponse DefaultInstanceForType {
-        get { return global::CodeBattle.Api.CreateMarineResponse.DefaultInstance; }
-      }
-      
-      public override CreateMarineResponse BuildPartial() {
-        if (resultIsReadOnly) {
-          return result;
-        }
-        resultIsReadOnly = true;
-        return result.MakeReadOnly();
-      }
-      
-      public override Builder MergeFrom(pb::IMessage other) {
-        if (other is CreateMarineResponse) {
-          return MergeFrom((CreateMarineResponse) other);
-        } else {
-          base.MergeFrom(other);
-          return this;
-        }
-      }
-      
-      public override Builder MergeFrom(CreateMarineResponse other) {
-        if (other == global::CodeBattle.Api.CreateMarineResponse.DefaultInstance) return this;
-        PrepareBuilder();
-        if (other.HasMarine) {
-          MergeMarine(other.Marine);
-        }
-        this.MergeUnknownFields(other.UnknownFields);
-        return this;
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input) {
-        return MergeFrom(input, pb::ExtensionRegistry.Empty);
-      }
-      
-      public override Builder MergeFrom(pb::ICodedInputStream input, pb::ExtensionRegistry extensionRegistry) {
-        PrepareBuilder();
-        pb::UnknownFieldSet.Builder unknownFields = null;
-        uint tag;
-        string field_name;
-        while (input.ReadTag(out tag, out field_name)) {
-          if(tag == 0 && field_name != null) {
-            int field_ordinal = global::System.Array.BinarySearch(_createMarineResponseFieldNames, field_name, global::System.StringComparer.Ordinal);
-            if(field_ordinal >= 0)
-              tag = _createMarineResponseFieldTags[field_ordinal];
+              tag = _endBattleFieldTags[field_ordinal];
             else {
               if (unknownFields == null) {
                 unknownFields = pb::UnknownFieldSet.CreateBuilder(this.UnknownFields);
@@ -3538,12 +3977,11 @@ namespace CodeBattle.Api {
               break;
             }
             case 10: {
-              global::CodeBattle.Marine.Builder subBuilder = global::CodeBattle.Marine.CreateBuilder();
-              if (result.hasMarine) {
-                subBuilder.MergeFrom(Marine);
-              }
-              input.ReadMessage(subBuilder, extensionRegistry);
-              Marine = subBuilder.BuildPartial();
+              result.hasReason = input.ReadString(ref result.reason_);
+              break;
+            }
+            case 16: {
+              result.hasWin = input.ReadBool(ref result.win_);
               break;
             }
           }
@@ -3556,47 +3994,48 @@ namespace CodeBattle.Api {
       }
       
       
-      public bool HasMarine {
-       get { return result.hasMarine; }
+      public bool HasReason {
+        get { return result.hasReason; }
       }
-      public global::CodeBattle.Marine Marine {
-        get { return result.Marine; }
-        set { SetMarine(value); }
+      public string Reason {
+        get { return result.Reason; }
+        set { SetReason(value); }
       }
-      public Builder SetMarine(global::CodeBattle.Marine value) {
+      public Builder SetReason(string value) {
         pb::ThrowHelper.ThrowIfNull(value, "value");
         PrepareBuilder();
-        result.hasMarine = true;
-        result.marine_ = value;
+        result.hasReason = true;
+        result.reason_ = value;
         return this;
       }
-      public Builder SetMarine(global::CodeBattle.Marine.Builder builderForValue) {
-        pb::ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
+      public Builder ClearReason() {
         PrepareBuilder();
-        result.hasMarine = true;
-        result.marine_ = builderForValue.Build();
+        result.hasReason = false;
+        result.reason_ = "";
         return this;
       }
-      public Builder MergeMarine(global::CodeBattle.Marine value) {
-        pb::ThrowHelper.ThrowIfNull(value, "value");
+      
+      public bool HasWin {
+        get { return result.hasWin; }
+      }
+      public bool Win {
+        get { return result.Win; }
+        set { SetWin(value); }
+      }
+      public Builder SetWin(bool value) {
         PrepareBuilder();
-        if (result.hasMarine &&
-            result.marine_ != global::CodeBattle.Marine.DefaultInstance) {
-            result.marine_ = global::CodeBattle.Marine.CreateBuilder(result.marine_).MergeFrom(value).BuildPartial();
-        } else {
-          result.marine_ = value;
-        }
-        result.hasMarine = true;
+        result.hasWin = true;
+        result.win_ = value;
         return this;
       }
-      public Builder ClearMarine() {
+      public Builder ClearWin() {
         PrepareBuilder();
-        result.hasMarine = false;
-        result.marine_ = null;
+        result.hasWin = false;
+        result.win_ = false;
         return this;
       }
     }
-    static CreateMarineResponse() {
+    static EndBattle() {
       object.ReferenceEquals(global::CodeBattle.Api.Api.Descriptor, null);
     }
   }

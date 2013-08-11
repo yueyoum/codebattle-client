@@ -5,7 +5,7 @@ public class RifleBullet : MonoBehaviour {
 	public ParticleEmitter smoke;
 	public GameObject explode;
 	
-	private float moveSpeed = 15;
+	private float moveSpeed = 20f;
 	
 	public Vector3 targetPosition;
 	public int shooterId;
@@ -56,7 +56,7 @@ public class RifleBullet : MonoBehaviour {
 			Marine otherMarineScript = other.gameObject.GetComponent<Marine>();
 			
 			if (shooterGroupId != otherMarineScript.groupId) {			
-				print ("BulletHitted");
+				// print ("BulletHitted");
 				explode.transform.FindChild("InnerCore").particleEmitter.emit = true;
 				explode.transform.FindChild("Lightsource").light.enabled = true;
 				explode.transform.FindChild("OuterCore").particleEmitter.emit = true;

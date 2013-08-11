@@ -22,6 +22,7 @@ using System.Collections;
 public class Main : MonoBehaviour {
 	public GameObject PrefabMarine;				// marine prefab
 	
+	
 	/*
 	private Vector3 DragStart;
 	private Vector3 DragEnd;
@@ -59,11 +60,7 @@ public class Main : MonoBehaviour {
 	}
 	
 
-	/*
-	void OnGUI() {
-		GUI.DrawTexture(_rect, _tex);
-	}
-	*/
+
 	
 	// Update is called once per frame
 	void Update () {
