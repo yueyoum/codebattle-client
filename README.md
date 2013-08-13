@@ -15,7 +15,6 @@ CodeBattle-Client 是一个Unity3d 项目。
 *   [Windows][1]
 *   [Linux][2]
 
-也可以直接下载编译好的 [windows可执行文件][1]
 
 **注意**
 
